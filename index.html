@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corporate Communications · Ridery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --turquesa:#38CEA6; --turquesa-suave:#7BE3C6; --turquesa-tinte:#E3F8F1;
+  --azul:#272883; --noche:#0F111E; --fucsia:#D71D5C; --ambar:#F2A93B;
+  --bg:#F6F7FA; --surface:#FFFFFF; --ink:#0F111E; --ink-2:#4A4D63; --line:#E2E4EC;
+  --chip:#EEF0F6; --accent-ink:#1E8E70;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F111E; --surface:#181B2E; --ink:#F1F2F7; --ink-2:#A9ADC4; --line:#2A2E48;
+    --chip:#22263D; --turquesa-tinte:#14322C; --accent-ink:#38CEA6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F111E; --surface:#181B2E; --ink:#F1F2F7; --ink-2:#A9ADC4; --line:#2A2E48;
+  --chip:#22263D; --turquesa-tinte:#14322C; --accent-ink:#38CEA6;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--turquesa);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.08;margin:0}
+p{margin:0}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:12px 24px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.03em;white-space:nowrap}
+.logo sup{font-size:.5em;font-weight:600}
+.nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{white-space:nowrap;text-decoration:none;color:var(--ink-2);font-size:.85rem;font-weight:500;padding:6px 12px;border-radius:999px}
+.nav-links a:hover,.nav-links a.on{color:var(--ink);background:var(--chip)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:var(--noche);color:#fff}
+.hero svg.arcs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-in{position:relative;max-width:1180px;margin:0 auto;padding:88px 24px 96px;display:grid;gap:32px}
+.hero h1{font-size:clamp(2.6rem,7.5vw,6rem);font-weight:900;letter-spacing:-.045em;line-height:.95;max-width:11ch}
+.hero .lead{font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:46ch;color:#D5D8EA}
+.hero .pillars{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.hero .pillars span{border:1.5px solid rgba(255,255,255,.28);padding:8px 16px;border-radius:999px;font-size:.9rem;font-weight:500}
+.hero .who{font-size:.95rem;color:var(--turquesa);font-weight:600}
+
+/* SECTIONS */
+section.blk{max-width:1180px;margin:0 auto;padding:88px 24px 24px}
+.sec-head{display:grid;gap:14px;margin-bottom:36px;max-width:760px}
+.sec-head h2{font-size:clamp(2rem,4.5vw,3.3rem)}
+.sec-head p{color:var(--ink-2);font-size:1.08rem;max-width:62ch}
+.tag{display:inline-block;width:fit-content;font-size:.85rem;font-weight:600;color:var(--accent-ink);background:var(--turquesa-tinte);padding:4px 12px;border-radius:999px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px}
+.muted{color:var(--ink-2)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.grid2{grid-template-columns:1fr}}
+
+/* toggle */
+.seg{display:inline-flex;background:var(--chip);padding:4px;border-radius:999px;gap:4px;margin-bottom:22px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:9px 18px;border-radius:999px;font-weight:600;font-size:.92rem;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(15,17,30,.12)}
+
+/* Interna */
+.today{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.today{grid-template-columns:1fr}}
+.today .ch{padding:22px;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.today .ch h3{font-size:1.15rem;margin-bottom:6px}
+.today .ch .pain{color:var(--fucsia);font-weight:600;font-size:.88rem;margin-bottom:8px}
+.capsula{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.capsula{grid-template-columns:1fr}}
+.cap-card{background:var(--azul);color:#fff;border-radius:24px;padding:28px;position:relative;overflow:hidden}
+.cap-card .cap-title{font-size:2rem;font-weight:900;letter-spacing:-.04em}
+.cap-card .cap-sub{color:#C9CBF2;font-size:.95rem;margin-bottom:20px}
+.cap-blocks{display:grid;gap:8px}
+.cap-blocks button{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;border:0;cursor:pointer;background:rgba(255,255,255,.08);color:#fff;padding:14px 16px;border-radius:14px;font-weight:600}
+.cap-blocks button:hover{background:rgba(255,255,255,.14)}
+.cap-blocks button[aria-pressed="true"]{background:var(--turquesa);color:var(--noche)}
+.cap-blocks small{font-weight:500;opacity:.8}
+.cap-detail h3{font-size:1.5rem;margin-bottom:10px}
+.cap-detail ul{margin:14px 0 0;padding-left:20px}
+.cap-detail li{margin:6px 0}
+.week{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:24px}
+.week div{background:var(--chip);border-radius:14px;padding:12px;font-size:.85rem}
+.week b{display:block;font-size:.9rem}
+.week .pub{background:var(--turquesa);color:var(--noche)}
+@media (max-width:620px){.week{grid-template-columns:1fr 1fr}}
+.principle{margin-top:24px;border-left:5px solid var(--turquesa);padding:6px 0 6px 20px;font-size:1.15rem;font-weight:600;max-width:60ch}
+.principle span{display:block;font-weight:400;font-size:.98rem;color:var(--ink-2);margin-top:6px}
+
+/* Externa tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tabs button{border:1.5px solid var(--line);background:var(--surface);padding:10px 18px;border-radius:999px;font-weight:600;cursor:pointer;font-size:.92rem}
+.tabs button[aria-selected="true"]{background:var(--noche);color:#fff;border-color:var(--noche)}
+:root[data-theme="dark"] .tabs button[aria-selected="true"]{background:var(--turquesa);color:var(--noche);border-color:var(--turquesa)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{background:var(--turquesa);color:var(--noche);border-color:var(--turquesa)}}
+.ext-body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:820px){.ext-body{grid-template-columns:1fr}}
+.ext-body h3{font-size:1rem;margin-bottom:6px;color:var(--accent-ink)}
+
+/* Gobernanza */
+.gov-rule{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:24px;overflow:hidden;margin-bottom:24px}
+.gov-rule div{padding:28px}
+.gov-rule .que{background:var(--azul);color:#fff}
+.gov-rule .como{background:var(--turquesa);color:var(--noche)}
+.gov-rule h3{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;margin-bottom:8px}
+@media (max-width:700px){.gov-rule{grid-template-columns:1fr}}
+.raci{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.raci{grid-template-columns:1fr 1fr}}
+.raci div{background:var(--chip);border-radius:16px;padding:16px}
+.raci b{display:block;font-size:.8rem;color:var(--ink-2);font-weight:600;margin-bottom:4px}
+.raci p{font-weight:600}
+.gov-note{margin-top:14px;font-size:.95rem}
+
+/* Crisis */
+.crisis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center}
+@media (max-width:900px){.crisis{grid-template-columns:1fr}}
+.orbit{position:relative;aspect-ratio:1/1;max-width:500px;width:100%;margin:0 auto}
+.orbit svg{position:absolute;inset:0;width:100%;height:100%}
+.node{position:absolute;transform:translate(-50%,-50%);border:0;cursor:pointer;border-radius:50%;display:grid;place-items:center;text-align:center;font-weight:700;line-height:1.15;padding:10px;transition:transform .2s}
+.node:hover{transform:translate(-50%,-50%) scale(1.04)}
+.node.core{width:40%;height:40%;left:50%;top:52%;background:var(--noche);color:#fff;font-size:clamp(.85rem,2vw,1.1rem);box-shadow:0 0 0 10px color-mix(in srgb,var(--turquesa) 25%,transparent)}
+:root[data-theme="dark"] .node.core{background:#fff;color:var(--noche)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .node.core{background:#fff;color:var(--noche)}}
+.node.mesa{width:27%;height:27%;font-size:clamp(.75rem,1.7vw,.95rem)}
+.node.m1{left:50%;top:14%;background:var(--turquesa);color:var(--noche)}
+.node.m2{left:16%;top:76%;background:var(--azul);color:#fff}
+.node.m3{left:84%;top:76%;background:var(--fucsia);color:#fff}
+.node[aria-pressed="true"]{outline:4px solid var(--ink);outline-offset:4px}
+.crisis-detail h3{font-size:1.7rem;margin-bottom:6px}
+.crisis-detail dl{display:grid;gap:14px;margin:18px 0 0}
+.crisis-detail dt{font-size:.82rem;font-weight:600;color:var(--ink-2)}
+.crisis-detail dd{margin:2px 0 0;font-weight:500}
+
+/* Riesgos */
+.risk-wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.risk-wrap{grid-template-columns:1fr}}
+.matrix{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(120px,auto)) auto;gap:6px}
+.ylab,.xlab{font-size:.8rem;color:var(--ink-2);font-weight:600;display:flex;align-items:center;justify-content:center}
+.ylab{writing-mode:vertical-rl;transform:rotate(180deg);padding:0 4px}
+.cell{border-radius:14px;padding:10px;display:flex;flex-wrap:wrap;align-content:flex-start;gap:6px}
+.lv1{background:color-mix(in srgb,var(--turquesa) 16%,var(--surface))}
+.lv2{background:color-mix(in srgb,var(--ambar) 22%,var(--surface))}
+.lv3{background:color-mix(in srgb,var(--fucsia) 22%,var(--surface))}
+.rk{border:0;cursor:pointer;background:var(--surface);border-radius:10px;padding:6px 10px;font-size:.8rem;font-weight:600;text-align:left;box-shadow:0 1px 2px rgba(15,17,30,.12)}
+.rk[aria-pressed="true"]{background:var(--noche);color:#fff}
+:root[data-theme="dark"] .rk[aria-pressed="true"]{background:#fff;color:var(--noche)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rk[aria-pressed="true"]{background:#fff;color:var(--noche)}}
+.axis-title{grid-column:2/5;text-align:center;font-size:.8rem;color:var(--ink-2);font-weight:600;padding-top:4px}
+.risk-detail h3{font-size:1.4rem;margin:8px 0}
+.risk-detail dl{display:grid;gap:12px;margin:16px 0 0}
+.risk-detail dt{font-size:.82rem;font-weight:600;color:var(--ink-2)}
+.risk-detail dd{margin:2px 0 0}
+.lvl-pill{display:inline-block;font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:999px}
+
+/* Protocolo */
+.steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;counter-reset:s}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:620px){.steps{grid-template-columns:1fr}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;position:relative}
+.step .n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--noche);color:#fff;font-weight:700;font-size:.9rem;margin-bottom:10px}
+:root[data-theme="dark"] .step .n{background:var(--turquesa);color:var(--noche)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step .n{background:var(--turquesa);color:var(--noche)}}
+.step h3{font-size:1rem;margin-bottom:6px}
+.step .time{font-weight:700;color:var(--accent-ink);font-size:.95rem;margin-bottom:6px}
+.step p{font-size:.88rem;color:var(--ink-2)}
+.lvl-desc{margin-bottom:20px;max-width:70ch}
+.rules{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
+.rules span{background:var(--chip);padding:8px 14px;border-radius:12px;font-size:.88rem;font-weight:500}
+
+/* 90 dias */
+.timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-radius:18px;overflow:hidden;margin-bottom:18px}
+.timeline button{border:0;cursor:pointer;padding:18px;text-align:left;background:var(--chip);color:var(--ink);border-right:1px solid var(--line)}
+.timeline button:last-child{border-right:0}
+.timeline button b{display:block;font-size:1.25rem;font-weight:800}
+.timeline button span{font-size:.88rem;color:var(--ink-2)}
+.timeline button[aria-selected="true"]{background:var(--turquesa);color:var(--noche)}
+.timeline button[aria-selected="true"] span{color:var(--noche)}
+@media (max-width:620px){.timeline{grid-template-columns:1fr}.timeline button{border-right:0;border-bottom:1px solid var(--line)}}
+.checklist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px}
+@media (max-width:700px){.checklist{grid-template-columns:1fr}}
+.checklist li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.checklist li::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;background:var(--turquesa);margin-top:7px}
+.checklist .ow{display:block;font-size:.82rem;color:var(--ink-2)}
+.deliv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
+@media (max-width:900px){.deliv{grid-template-columns:1fr}}
+.deliv .kpi-panel{grid-column:span 2}
+@media (max-width:900px){.deliv .kpi-panel{grid-column:auto}}
+.deliv h3{font-size:1.15rem;margin-bottom:10px}
+.deliv ul{margin:0;padding-left:18px}
+.deliv li{margin:6px 0;font-size:.95rem}
+.kpi{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.kpi:last-child{border-bottom:0}
+.kpi em{font-style:normal;color:var(--ink-2);font-size:.82rem;text-align:right}
+
+
+/* Interna ampliada */
+.sub{margin-top:64px}
+.sub-head{display:grid;gap:8px;margin-bottom:22px;max-width:720px}
+.sub-head h3{font-size:clamp(1.5rem,3vw,2.1rem)}
+.sub-head p{color:var(--ink-2)}
+.chan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.chan{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.chan{grid-template-columns:1fr}}
+.chan .c{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.chan .c .role{display:inline-block;width:fit-content;font-size:.8rem;font-weight:700;padding:4px 12px;border-radius:999px;color:#fff}
+.chan .c h4{margin:0;font-size:1.15rem;font-weight:800;letter-spacing:-.01em}
+.chan .c p{font-size:.92rem;color:var(--ink-2)}
+.chan .meta{display:grid;gap:4px;font-size:.85rem;border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.chan .meta b{font-weight:600;color:var(--ink)}
+.voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}
+@media (max-width:820px){.voices{grid-template-columns:1fr}}
+.voice{border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.voice h4{margin:0;font-size:1.4rem;font-weight:900;letter-spacing:-.02em}
+.voice .who2{font-size:.85rem;font-weight:600;opacity:.85}
+.voice ul{margin:6px 0 0;padding-left:18px;font-size:.93rem}
+.voice li{margin:4px 0}
+.v-tito{background:var(--turquesa);color:var(--noche)}
+.v-people{background:var(--azul);color:#fff}
+.v-lid{background:var(--noche);color:#fff;border:1px solid var(--line)}
+.topic-pick{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.topic-pick button{border:1.5px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:999px;font-weight:600;cursor:pointer;font-size:.88rem}
+.topic-pick button[aria-pressed="true"]{background:var(--turquesa);border-color:var(--turquesa);color:var(--noche)}
+.topic-res{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.topic-res{grid-template-columns:1fr 1fr}}
+.topic-res div{background:var(--chip);border-radius:16px;padding:14px 16px}
+.topic-res b{display:block;font-size:.78rem;color:var(--ink-2);font-weight:600;margin-bottom:2px}
+.topic-res p{font-weight:600;font-size:.95rem}
+.units{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.units{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.units{grid-template-columns:1fr}}
+.unit{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.unit .uh{padding:16px 18px;color:#fff}
+.unit .uh h4{margin:0;font-size:1.05rem;font-weight:800}
+.unit .uh span{font-size:.82rem;opacity:.85}
+.unit ul{list-style:none;margin:0;padding:6px 18px 14px}
+.unit li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.88rem;display:flex;justify-content:space-between;gap:10px}
+.unit li:last-child{border-bottom:0}
+.unit li em{font-style:normal;color:var(--ink-2);text-align:right}
+.unit .corr{margin:0 18px 16px;background:var(--turquesa-tinte);color:var(--accent-ink);border-radius:12px;padding:10px 12px;font-size:.84rem;font-weight:600}
+.tbl-wrap{overflow-x:auto;border-radius:20px;border:1px solid var(--line);background:var(--surface)}
+table.resp{border-collapse:collapse;width:100%;min-width:720px;font-size:.92rem}
+table.resp th,table.resp td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+table.resp th{font-size:.8rem;color:var(--ink-2);font-weight:600;background:var(--chip)}
+table.resp tr:last-child td{border-bottom:0}
+table.resp td:first-child{font-weight:700;white-space:nowrap}
+.cal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.cal{grid-template-columns:1fr}}
+.cal .k{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px}
+.cal .k h4{margin:0 0 10px;font-size:1.2rem;font-weight:800}
+.cal .k ul{margin:0;padding-left:18px;font-size:.93rem}
+.cal .k li{margin:6px 0}
+.flag{margin-top:18px;background:color-mix(in srgb,var(--ambar) 18%,var(--surface));border-radius:16px;padding:16px 18px;font-size:.93rem}
+.flag b{font-weight:700}
+
+.lvl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.lvl{grid-template-columns:1fr 1fr}}
+.lvl div{background:var(--chip);border-radius:16px;padding:14px 16px}
+.lvl div.wide{grid-column:span 2}
+@media (max-width:900px){.lvl div.wide{grid-column:auto}}
+.lvl b{display:block;font-size:.78rem;color:var(--ink-2);font-weight:600;margin-bottom:2px}
+.lvl p{font-weight:500;font-size:.93rem}
+.rule{border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.rule h4{margin:0;font-size:1.35rem;font-weight:900;letter-spacing:-.02em}
+.rule p{font-size:.97rem}
+.rule .ex{font-size:.88rem;border-radius:12px;padding:10px 14px;margin-top:4px}
+.r1{background:var(--azul);color:#fff}.r1 .ex{background:rgba(255,255,255,.12)}
+.r2{background:var(--turquesa);color:var(--noche)}.r2 .ex{background:rgba(255,255,255,.4)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.chips span{font-size:.85rem;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--surface);border:1.5px solid var(--line)}
+.grp-title{font-weight:800;font-size:1.05rem;margin:0 0 12px}
+.unit .ch2{margin:0 18px 6px;font-size:.82rem;color:var(--ink-2)}
+.unit .ch2 b{color:var(--ink);font-weight:600}
+.svc{display:flex;flex-wrap:wrap;gap:10px}
+.svc div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:.88rem}
+.svc div b{display:block;font-weight:700}
+.svc div span{color:var(--ink-2)}
+
+/* Tito presentador */
+.hero-in{grid-template-columns:1fr}
+.hero-text{display:grid;gap:28px}
+@media (max-width:860px){.hero-in{grid-template-columns:1fr}.hero-tito{order:-1;justify-self:center}}
+.hero-tito{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px}
+.hero-tito .spot{position:relative;width:min(340px,70vw);aspect-ratio:1/1;border-radius:50%;background:#fff;display:flex;align-items:flex-end;justify-content:center;overflow:visible}
+.hero-tito img{width:82%;height:auto;transform:translateY(-3%);animation:bob 3.2s ease-in-out infinite}
+@media (max-width:860px){.hero-tito .spot{width:min(240px,60vw)}}
+.say{position:relative;background:#fff;color:var(--noche);border-radius:22px;padding:14px 18px;font-weight:600;font-size:1rem;line-height:1.4;max-width:320px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.say::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(45deg);width:18px;height:18px;background:#fff;border-radius:3px}
+.start{border:0;cursor:pointer;background:var(--turquesa);color:var(--noche);font-weight:700;padding:12px 22px;border-radius:999px;font-size:.98rem}
+.start:hover{background:var(--turquesa-suave)}
+@keyframes bob{0%,100%{transform:translateY(-3%)}50%{transform:translateY(-6%)}}
+.progress{position:fixed;left:0;top:0;height:4px;background:var(--turquesa);width:0;z-index:40;transition:width .1s linear}
+.guide{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:flex-end;gap:10px;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .3s,transform .3s}
+.guide.on{opacity:1;transform:none;pointer-events:auto}
+.g-bubble{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px 20px 6px 20px;padding:14px 16px 12px;max-width:min(330px,calc(100vw - 130px));box-shadow:0 10px 30px rgba(15,17,30,.18);display:grid;gap:10px}
+.guide.min .g-bubble{display:none}
+.g-bubble .g-name{font-size:.75rem;font-weight:700;color:var(--accent-ink)}
+.g-bubble p{font-size:.92rem;line-height:1.45;font-weight:500}
+.g-ctrl{display:flex;gap:6px;align-items:center}
+.g-ctrl button{border:0;cursor:pointer;font-weight:600;font-size:.8rem;border-radius:999px;padding:6px 12px;background:var(--chip);color:var(--ink)}
+.g-ctrl button.pri{background:var(--turquesa);color:var(--noche)}
+.g-ctrl button.x{margin-left:auto;background:transparent;color:var(--ink-2);padding:6px 8px}
+.g-tito{border:0;cursor:pointer;background:#fff;border-radius:50%;width:84px;height:84px;padding:0;display:grid;place-items:end center;overflow:hidden;box-shadow:0 8px 24px rgba(15,17,30,.25);flex:none;border:3px solid var(--turquesa)}
+.g-tito img{height:118%;width:auto;margin-bottom:-38%}
+.g-tito img.wiggle{animation:wig .5s ease}
+@keyframes wig{0%,100%{transform:rotate(0)}30%{transform:rotate(-8deg)}60%{transform:rotate(6deg)}}
+@media (max-width:600px){.g-tito{width:64px;height:64px}.g-bubble p{font-size:.86rem}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero-tito img{animation:none}}
+
+
+/* Equipo */
+.org{display:flex;flex-direction:column;align-items:center;gap:0}
+.org[hidden]{display:none}
+.onode{border-radius:18px;padding:14px 20px;text-align:center;min-width:220px;max-width:300px;background:var(--surface);border:1.5px solid var(--line)}
+.onode b{display:block;font-weight:800;font-size:1rem}
+.onode span{font-size:.85rem;color:var(--ink-2)}
+.onode.ceo{background:var(--chip)}
+.onode.lead{background:var(--azul);color:#fff;border-color:var(--azul)}
+.onode.lead span{color:#C9CBF2}
+.vline{width:2px;height:28px;background:var(--line)}
+.kids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;width:100%;max-width:820px;position:relative;padding-top:28px}
+.kids::before{content:"";position:absolute;top:0;left:25%;right:25%;height:2px;background:var(--line)}
+.kid{position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.kid::before{content:"";position:absolute;top:-28px;left:50%;width:2px;height:28px;background:var(--line)}
+.kid h4{margin:0;font-size:1.05rem;font-weight:800}
+.kid ul{margin:0;padding-left:18px;font-size:.9rem;color:var(--ink-2)}
+.kid li{margin:3px 0}
+.phase{display:inline-block;width:fit-content;font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:999px}
+.ph1{background:var(--turquesa);color:var(--noche)}
+.ph2{background:color-mix(in srgb,var(--ambar) 35%,var(--surface));color:var(--ink)}
+.ph3{background:var(--chip);color:var(--ink)}
+@media (max-width:820px){.kids{grid-template-columns:1fr}.kids::before{display:none}.kid::before{display:none}}
+.solo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:20px;width:100%}
+@media (max-width:820px){.solo{grid-template-columns:1fr 1fr}}
+.solo div{background:var(--chip);border-radius:14px;padding:12px 14px;font-size:.88rem}
+.solo b{display:block;font-weight:700;margin-bottom:2px}
+.support{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px}
+.support div{border:1.5px dashed var(--ink-2);border-radius:14px;padding:10px 14px;font-size:.86rem;text-align:center}
+.support div b{display:block;font-weight:700}
+.support div span{color:var(--ink-2)}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.tools{grid-template-columns:1fr}}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.tool h4{margin:0;font-size:1.15rem;font-weight:800}
+.tool p{font-size:.93rem;color:var(--ink-2)}
+.tool .opts{display:flex;flex-wrap:wrap;gap:8px}
+.tool .opts span{background:var(--turquesa-tinte);color:var(--accent-ink);font-weight:600;font-size:.82rem;padding:5px 12px;border-radius:999px}
+
+/* Cierre */
+.ask{background:var(--turquesa);color:var(--noche);border-radius:28px;padding:44px 32px;position:relative;overflow:hidden}
+.ask h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;margin-bottom:22px;max-width:16ch}
+.ask ol{margin:0;padding-left:22px;display:grid;gap:10px;font-size:1.05rem;font-weight:500;max-width:70ch}
+footer{max-width:1180px;margin:0 auto;padding:48px 24px 64px;color:var(--ink-2);font-size:.85rem}
+.fade{animation:fd .25s ease}
+@keyframes fd{from{opacity:.2}to{opacity:1}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Secciones">
+  <div class="nav-in">
+    <div class="logo">Ridery<sup>®</sup></div>
+    <div class="nav-links" id="navlinks">
+      <a href="#interna">Interna</a>
+      <a href="#externa">Externa</a>
+      <a href="#gobernanza">Gobernanza</a>
+      <a href="#crisis">Crisis</a>
+      <a href="#riesgos">Riesgos</a>
+      <a href="#protocolo">Protocolo</a>
+      <a href="#equipo">Equipo</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <svg class="arcs" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M760 -40 C 980 120, 1260 140, 1300 420 L 1300 -40 Z" fill="#38CEA6"/>
+    <path d="M860 640 C 940 470, 1120 420, 1300 470 L 1300 640 Z" fill="#272883"/>
+    <circle cx="1030" cy="250" r="120" fill="none" stroke="#38CEA6" stroke-width="2" opacity=".35"/>
+    <circle cx="1030" cy="250" r="190" fill="none" stroke="#38CEA6" stroke-width="2" opacity=".18"/>
+  </svg>
+  <div class="hero-in">
+   <div class="hero-text">
+    <p class="who">Corporate Communications Lead · Beatriz Noriega</p>
+    <h1>Una sola voz para Ridery</h1>
+    <p class="lead">Cómo vamos a construir, proteger y proyectar la narrativa institucional de Ridery: hacia adentro, hacia afuera y cuando las cosas se complican. Un área corporativa al servicio de todas las unidades de negocio.</p>
+    <div class="pillars" aria-label="Frentes del área">
+      <span>Comunicación interna</span><span>Comunicación externa</span><span>Gobernanza</span><span>Gestión de crisis</span>
+    </div>
+   </div>
+  </div>
+</header>
+
+<main>
+
+<!-- INTERNA -->
+<section class="blk" id="interna">
+  <div class="sec-head">
+    <span class="tag">Comunicación interna</span>
+    <h2>Que el equipo se entere primero, y por nosotros</h2>
+    <p>Hoy la información interna está dispersa y llega tarde. El objetivo es centralizarla, sin mezclarla: que cada colaborador reciba lo que le toca y se sienta parte de lo que se está construyendo en Ridery.</p>
+  </div>
+
+  <div class="seg" role="group" aria-label="Ver situación">
+    <button aria-pressed="true" data-view="hoy">Cómo estamos hoy</button>
+    <button aria-pressed="false" data-view="propuesta">Lo que propongo</button>
+  </div>
+
+  <div id="view-hoy">
+    <div class="today">
+      <div class="ch"><h3>Slack</h3><p class="pain">Información dispersa</p><p class="muted">Cada área comunica por su lado, en canales distintos. Lo importante se pierde entre lo urgente.</p></div>
+      <div class="ch"><h3>Correo</h3><p class="pain">Saturado y poco leído</p><p class="muted">Los anuncios compiten con el trabajo del día a día y no hay una línea editorial común.</p></div>
+      <div class="ch"><h3>Ridery News</h3><p class="pain">Una vez al mes, a mes muerto</p><p class="muted">Cuando llega, la información ya es vieja o no está verificada. El pasillo se adelanta.</p></div>
+    </div>
+    <p class="principle">Cuando la empresa no cuenta, el pasillo cuenta por ella.<span>Y el pasillo no siempre cuenta lo que es, ni como nos conviene que se cuente.</span></p>
+  </div>
+
+  <div id="view-propuesta" hidden>
+    <div class="capsula">
+      <div class="cap-card">
+        <div class="cap-title">La Cápsula</div>
+        <p class="cap-sub">Cada semana, en 3 minutos de lectura: lo que está pasando en Ridery.</p>
+        <div class="cap-blocks" id="capBlocks"></div>
+      </div>
+      <div class="panel cap-detail fade" id="capDetail" aria-live="polite"></div>
+    </div>
+    <div class="week" aria-label="Ritmo semanal">
+      <div><b>Lunes</b>Recolección con Heads y STLs</div>
+      <div><b>Martes</b>Redacción y diseño</div>
+      <div><b>Miércoles</b>Validación con Leadership</div>
+      <div class="pub"><b>Jueves</b>Publicación en Slack y correo</div>
+      <div><b>Viernes</b>Lectura de respuestas y métricas</div>
+    </div>
+    <p class="principle">Agenda propia: decidimos qué se cuenta, cuándo y cómo.<span>Ridery News pasa a ser un resumen mensual de lo ya contado, no la única fuente. Un canal oficial en Slack concentra todo lo corporativo.</span></p>
+  </div>
+
+  <!-- Modelo de servicio -->
+  <div class="sub">
+    <div class="sub-head">
+      <span class="tag">Modelo de servicio</span>
+      <h3>Un área corporativa que sirve a todas las unidades</h3>
+      <p>Corporate Communications comunica para el holding y para cada unidad de negocio. Por eso cada mensaje nace con una audiencia definida y sigue dos reglas.</p>
+    </div>
+    <div class="grid2">
+      <div class="rule r1"><h4>Segmentar</h4><p>Cada quien recibe lo que le toca. Lo que es de una unidad se queda en esa unidad.</p><div class="ex">Un cambio de pricing de Ride Hailing no tiene por qué llegarle al equipo de Zupper.</div></div>
+      <div class="rule r2"><h4>Equilibrar</h4><p>Si una unidad aparece en una comunicación general, todas aparecen. Ninguna unidad se siente de segunda.</p><div class="ex">Si La Cápsula cuenta un logro de Ride Hailing, también cuenta en qué están Zupper, Emprende con Ridery y las demás.</div></div>
+    </div>
+    <div class="panel" style="margin-top:20px">
+      <p class="muted" style="margin-bottom:12px">Tres niveles de audiencia. Elige uno:</p>
+      <div class="seg" role="group" aria-label="Nivel de audiencia" id="audSeg" style="margin-bottom:16px">
+        <button aria-pressed="true" data-a="0">Todo el holding</button>
+        <button aria-pressed="false" data-a="1">Una unidad de negocio</button>
+        <button aria-pressed="false" data-a="2">Un equipo o célula</button>
+      </div>
+      <div class="lvl fade" id="audBody"></div>
+      <div class="chips" id="audChips"></div>
+    </div>
+  </div>
+
+  <!-- Ecosistema de canales -->
+  <div class="sub">
+    <div class="sub-head">
+      <span class="tag">Ecosistema de canales</span>
+      <h3>Cada canal, un rol claro</h3>
+      <p>Para un equipo joven, tecnológico y que necesita inmediatez: menos canales mezclados, más claridad sobre dónde encontrar cada cosa.</p>
+    </div>
+    <div class="chan" id="chanGrid"></div>
+  </div>
+
+  <!-- Pregunta abierta -->
+  <div class="sub">
+    <div class="sub-head">
+      <span class="tag">Pregunta abierta</span>
+      <h3>Los equipos preguntan, Ridery responde</h3>
+      <p>Un espacio permanente, que no depende de eventos ni de agendas, para que las preguntas y comentarios suban desde los equipos y cada uno llegue a quien lo puede responder.</p>
+    </div>
+    <div class="week" style="margin-top:0">
+      <div><b>1 · Enviar</b>Cualquier colaborador escribe por un formulario en Slack, con su nombre o anónimo</div>
+      <div><b>2 · Clasificar</b>Beatriz Noriega ordena por tema y audiencia: holding, unidad o equipo</div>
+      <div><b>3 · Derivar</b>Llega al líder de la unidad, a People o al CEO, solo si es estratégico</div>
+      <div class="pub"><b>4 · Responder</b>Lo general se publica en La Cápsula o en el canal de la unidad</div>
+      <div><b>5 · Cerrar</b>Se avisa a quien preguntó y se mide el tiempo de respuesta</div>
+    </div>
+    <div class="rules" style="margin-top:18px">
+      <span>Toda pregunta recibe respuesta, aunque sea "lo estamos evaluando"</span>
+      <span>Lo anónimo se mantiene anónimo</span>
+      <span>Los casos personales de RRHH se atienden en privado con People</span>
+      <span>El CEO responde con una nota de voz o un video corto cuando el tema lo amerita, sin agenda fija</span>
+    </div>
+  </div>
+
+  <!-- Quién habla de qué -->
+  <div class="sub">
+    <div class="sub-head">
+      <span class="tag">Vocerías internas</span>
+      <h3>Quién habla de qué</h3>
+      <p>Tres voces con territorios claros. Corporate Communications define el cómo en las tres.</p>
+    </div>
+    <div class="voices">
+      <div class="voice v-tito"><span class="who2">Tito</span><h4>Noticias generales</h4><ul><li>Lanzamientos y nuevas flotas</li><li>Logros de equipos</li><li>Radio pasillo y Tu voz</li><li>Recordatorios y fechas especiales</li></ul></div>
+      <div class="voice v-people"><span class="who2">People · Andrea Pinto, Chief People Officer</span><h4>Temas de RRHH</h4><ul><li>Beneficios, nómina y políticas</li><li>Nuevos ingresos y salidas</li><li>Clima y encuestas de People</li><li>Formación y evaluaciones</li></ul></div>
+      <div class="voice v-lid"><span class="who2">Líderes · CEO, C-level y SVPs</span><h4>Temas delicados</h4><ul><li>Cambios organizacionales</li><li>Resultados y rumbo del negocio</li><li>Decisiones estratégicas</li><li>Incidentes y crisis</li></ul></div>
+    </div>
+    <div class="panel">
+      <p class="muted" style="margin-bottom:12px">Elige un tema para ver quién lo comunica:</p>
+      <div class="topic-pick" id="topicPick"></div>
+      <div class="topic-res fade" id="topicRes"></div>
+    </div>
+  </div>
+
+  <!-- Red de corresponsales -->
+  <div class="sub">
+    <div class="sub-head">
+      <span class="tag">Red de corresponsales</span>
+      <h3>Una fuente y un corresponsal por unidad de negocio</h3>
+      <p>Cada unidad tiene su líder como fuente, su propio canal y un corresponsal que avisa de noticias, logros y detrás de cámaras en el momento. Así cada unidad tiene voz en lo general y espacio propio para lo suyo. Los corresponsales los designa cada líder.</p>
+    </div>
+    <p class="grp-title">Unidades de negocio</p>
+    <div class="units" id="units"></div>
+    <p class="grp-title" style="margin-top:28px">Áreas de servicio corporativo</p>
+    <p class="muted" style="margin:-6px 0 12px;font-size:.93rem">Como Corporate Communications, prestan servicio a todas las unidades. Sus mensajes suelen ser para todo el holding.</p>
+    <div class="svc" id="svc"></div>
+  </div>
+
+  <!-- Calendario -->
+  <div class="sub">
+    <div class="sub-head">
+      <span class="tag">Calendario interno</span>
+      <h3>El ritmo de la comunicación interna</h3>
+    </div>
+    <div class="cal">
+      <div class="k"><h4>Cada semana</h4><ul><li>La Cápsula general en Slack y correo, los jueves, con espacio para cada unidad</li><li>Cápsulas por unidad, cuando haya información solo para ese equipo</li><li>Video de 60 segundos con Tito</li><li>Pregunta de Tu voz</li><li>Avisos rápidos solo si hay algo urgente</li></ul></div>
+      <div class="k"><h4>Cada mes</h4><ul><li>Resumen de lo que preguntaron los equipos y cómo se respondió</li><li>Ridery News como resumen del mes</li><li>Encuesta de pulso de una pregunta</li><li>Reunión con cada líder de unidad para planificar su agenda</li></ul></div>
+      <div class="k"><h4>Cada trimestre</h4><ul><li>Mensaje de resultados y rumbo del CEO, en correo o video corto</li><li>Encuesta de clima junto con People</li><li>Evaluación de canales y ajustes</li><li>Reunión con la red de corresponsales</li></ul></div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- EXTERNA -->
+<section class="blk" id="externa">
+  <div class="sec-head">
+    <span class="tag">Comunicación externa</span>
+    <h2>Una reputación en reconstrucción</h2>
+    <p>No partimos de cero: partimos de una percepción que hay que transformar. El objetivo es que Ridery sea reconocida como una empresa venezolana de tecnología, confiable e independiente, que trabaja para todos los venezolanos.</p>
+  </div>
+  <div class="tabs" role="tablist" id="extTabs"></div>
+  <div class="panel fade" id="extBody" role="tabpanel"></div>
+
+  <div class="sub">
+    <div class="sub-head">
+      <span class="tag">Principios de la reconstrucción</span>
+      <h3>Cómo se reconstruye una reputación</h3>
+      <p>Siete principios que guían cada decisión de comunicación externa.</p>
+    </div>
+    <div class="chan" id="recon"></div>
+  </div>
+</section>
+
+<!-- GOBERNANZA -->
+<section class="blk" id="gobernanza">
+  <div class="sec-head">
+    <span class="tag">Gobernanza</span>
+    <h2>Quién define el qué, quién define el cómo</h2>
+    <p>Para que Ridery hable con una sola voz, cada mensaje tiene un dueño de contenido y un dueño de forma.</p>
+  </div>
+  <div class="gov-rule">
+    <div class="que"><h3>El qué</h3><p>Lo define el área dueña del tema junto con Leadership: la decisión, los datos, el alcance.</p></div>
+    <div class="como"><h3>El cómo</h3><p>Lo define Corporate Communications: mensaje, tono, canal, momento, vocero y audiencia (holding, unidad o equipo).</p></div>
+  </div>
+  <div class="panel">
+    <p class="muted" style="margin-bottom:12px">Elige una situación para ver cómo funciona:</p>
+    <div class="tabs" role="tablist" id="govTabs"></div>
+    <div class="raci fade" id="govBody"></div>
+    <p class="gov-note muted" id="govNote"></p>
+  </div>
+</section>
+
+<!-- CRISIS -->
+<section class="blk" id="crisis">
+  <div class="sec-head">
+    <span class="tag">Gestión de crisis</span>
+    <h2>Un comité que decide, tres mesas que escuchan</h2>
+    <p>El comité central toma las decisiones. Las mesas conocen a su público, detectan señales temprano y ejecutan la comunicación en su frente. Toca cada círculo.</p>
+  </div>
+  <div class="crisis">
+    <div class="orbit">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <line x1="50" y1="52" x2="50" y2="14" stroke="var(--line)" stroke-width=".8"/>
+        <line x1="50" y1="52" x2="16" y2="76" stroke="var(--line)" stroke-width=".8"/>
+        <line x1="50" y1="52" x2="84" y2="76" stroke="var(--line)" stroke-width=".8"/>
+        <circle cx="50" cy="52" r="38" fill="none" stroke="var(--line)" stroke-width=".5" stroke-dasharray="1.5 1.5"/>
+      </svg>
+      <button class="node core" data-c="comite" aria-pressed="true">Comité central</button>
+      <button class="node mesa m1" data-c="conductores" aria-pressed="false">Mesa Conductores</button>
+      <button class="node mesa m2" data-c="clientes" aria-pressed="false">Mesa Clientes</button>
+      <button class="node mesa m3" data-c="institucional" aria-pressed="false">Mesa Institucional</button>
+    </div>
+    <div class="panel crisis-detail fade" id="crisisDetail" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- RIESGOS -->
+<section class="blk" id="riesgos">
+  <div class="sec-head">
+    <span class="tag">Mapa inicial de riesgos</span>
+    <h2>Lo que puede pasar, antes de que pase</h2>
+    <p>Primera versión, a validar con cada mesa en las próximas semanas. Toca un riesgo para ver su señal temprana y quién lo gestiona.</p>
+  </div>
+  <div class="risk-wrap">
+    <div class="panel" style="padding:18px">
+      <div class="matrix" id="matrix"></div>
+    </div>
+    <div class="panel risk-detail fade" id="riskDetail" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- PROTOCOLO -->
+<section class="blk" id="protocolo">
+  <div class="sec-head">
+    <span class="tag">Protocolo de respuesta</span>
+    <h2>Seis pasos, tres niveles</h2>
+    <p>Rapidez, coherencia, transparencia y control de vocerías. Los tiempos cambian según la gravedad del caso.</p>
+  </div>
+  <div class="seg" role="group" aria-label="Nivel de gravedad" id="lvlSeg">
+    <button aria-pressed="true" data-l="1">Nivel 1 · Incidente</button>
+    <button aria-pressed="false" data-l="2">Nivel 2 · Alerta</button>
+    <button aria-pressed="false" data-l="3">Nivel 3 · Crisis</button>
+  </div>
+  <p class="lvl-desc muted" id="lvlDesc"></p>
+  <div class="steps fade" id="steps"></div>
+  <div class="rules">
+    <span>Nada sale sin alineación del comité</span>
+    <span>Primero se informa adentro, después afuera</span>
+    <span>Solo hablan los voceros designados</span>
+    <span>Toda crisis cierra con aprendizajes documentados</span>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="blk" id="equipo">
+  <div class="sec-head">
+    <span class="tag">Lo que necesito para desarrollarlo</span>
+    <h2>Un equipo y las herramientas para sostener el plan</h2>
+    <p>Hoy el área es una sola persona a cargo de la comunicación interna, la externa y la gestión de crisis. Para sostener este plan, propongo crecer por etapas.</p>
+  </div>
+  <div class="seg" role="group" aria-label="Estructura del área" id="orgSeg">
+    <button aria-pressed="false" data-o="hoy">Cómo estamos hoy</button>
+    <button aria-pressed="true" data-o="prop">Estructura propuesta</button>
+  </div>
+  <div class="panel">
+    <div id="org-hoy" class="org" hidden>
+      <div class="onode ceo"><b>CEO</b><span>Gerson Gómez</span></div>
+      <div class="vline"></div>
+      <div class="onode lead"><b>Corporate Communications Lead</b><span>Beatriz Noriega</span></div>
+      <div class="solo">
+        <div><b>Comunicación interna</b>La Cápsula, canales, corresponsales y Pregunta abierta</div>
+        <div><b>Comunicación externa</b>Reputación, vocería, agencia y monitoreo</div>
+        <div><b>Gestión de crisis</b>Comité, mesas y protocolo</div>
+        <div><b>Contenido y diseño</b>Piezas, videos con Tito y presentaciones</div>
+      </div>
+    </div>
+    <div id="org-prop" class="org">
+      <div class="onode ceo"><b>CEO</b><span>Gerson Gómez</span></div>
+      <div class="vline"></div>
+      <div class="onode lead"><b>Corporate Communications Lead</b><span>Beatriz Noriega · estrategia, vocería, crisis y Leadership</span></div>
+      <div class="kids">
+        <div class="kid"><span class="phase ph1">Etapa 1 · primero</span><h4>Analista de Comunicación Interna</h4><ul><li>Producción semanal de La Cápsula</li><li>Canales por unidad y red de corresponsales</li><li>Pregunta abierta y encuestas de pulso</li></ul></div>
+        <div class="kid"><span class="phase ph2">Etapa 2</span><h4>Analista de Reputación y Comunicación Externa</h4><ul><li>Monitoreo de medios y redes</li><li>Mediciones de percepción cada seis meses</li><li>Enlace diario con la agencia</li></ul></div>
+      </div>
+      <div class="support">
+        <div><b>Agencia de PR</b><span>Medios nacionales, ya activa</span></div>
+        <div><b>Relaciones Institucionales</b><span>César Machado</span></div>
+        <div><b>Brand Operation</b><span>Elymir Antón · assets de marca</span></div>
+        <div><b>People</b><span>Andrea Pinto · temas de RRHH</span></div>
+        <div><b>Legal</b><span>Ramiro Molina, Juan Velutini</span></div>
+      </div>
+      <p class="muted" style="text-align:center;margin-top:12px;font-size:.88rem">Las áreas con borde punteado no reportan a Corporate Communications, pero trabajan en coordinación con ella.</p>
+    </div>
+  </div>
+
+  <div class="sub">
+    <div class="sub-head">
+      <span class="tag">Herramientas</span>
+      <h3>Tecnología para multiplicar al equipo</h3>
+      <p>Con un equipo pequeño, la inteligencia artificial hace el trabajo de monitoreo y producción que de otra forma requeriría más personas.</p>
+    </div>
+    <div class="tools">
+      <div class="tool"><h4>Monitoreo de reputación</h4><p>Seguimiento en tiempo real de menciones en medios y redes, con análisis de sentimiento y alertas. Es la base para medir hoy y volver a medir a los seis meses.</p><div class="opts"><span>Brand24</span><span>Meltwater</span><span>YouScan</span><span>Google Alerts</span></div></div>
+      <div class="tool"><h4>Cómo nos describen las IA</h4><p>Cada vez más personas preguntan a asistentes de IA sobre las empresas. Conviene medir qué responden sobre Ridery y si siguen asociándola con la política.</p><div class="opts"><span>Brand24 · visibilidad en IA</span><span>Revisión mensual manual</span></div></div>
+      <div class="tool"><h4>Asistente de IA del área</h4><p>Redacción de La Cápsula, resúmenes de monitoreo, líneas de respuesta y preparación de voceros, conectado a Slack, correo y documentos.</p><div class="opts"><span>Claude</span></div></div>
+      <div class="tool"><h4>Diseño y video</h4><p>Plantillas de marca para que cualquiera del equipo produzca piezas, y videos cortos con Tito generados con IA.</p><div class="opts"><span>Canva</span><span>Figma Weave</span><span>CapCut</span></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<aside class="guide" id="guide" aria-label="Tito, tu guía">
+  <div class="g-bubble">
+    <span class="g-name">Tito</span>
+    <p id="gText" aria-live="polite"></p>
+    <div class="g-ctrl">
+      <button id="gPrev">Anterior</button>
+      <button id="gNext" class="pri">Siguiente</button>
+      <button id="gHide" class="x" aria-label="Ocultar mensaje">Ocultar</button>
+    </div>
+  </div>
+  <button class="g-tito" id="gTito" aria-label="Hablar con Tito"><img id="gImg" alt=""></button>
+</aside>
+<footer>Corporate Communications · Beatriz Noriega · Ridery · Documento de trabajo</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+function refresh(el){el.classList.remove('fade');void el.offsetWidth;el.classList.add('fade')}
+
+/* ---------- Interna ---------- */
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('[data-view]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  $('#view-hoy').hidden=b.dataset.view!=='hoy';
+  $('#view-propuesta').hidden=b.dataset.view!=='propuesta';
+}));
+const cap=[
+ {k:'Lo grande',s:'Decisiones y rumbo',t:'Lo grande',d:'Las decisiones macro de la semana y, sobre todo, el porqué. Que nadie se entere de un cambio importante por un tercero.',e:['Nuevas verticales, alianzas o expansión a ciudades','Cambios organizacionales y nuevos líderes','Prioridades del trimestre explicadas en simple']},
+ {k:'En qué estamos',s:'Proyectos por área',t:'En qué estamos',d:'Un vistazo rápido a lo que cada área está moviendo. Ayuda a romper silos y a entender cómo encaja el trabajo de cada quien.',e:['Lanzamientos de producto en camino','Avances de Ridery 360 con empresas','Mejoras para conductores y usuarios']},
+ {k:'Números que importan',s:'Un dato, bien contado',t:'Números que importan',d:'Uno o dos datos de negocio compartidos con contexto, para que el equipo sienta el avance real y lo que su trabajo produce.',e:['Viajes, envíos o ciudades alcanzadas','Hitos de satisfacción o seguridad','Comparativos simples contra el mes anterior']},
+ {k:'Radio pasillo',s:'Lo que todos quieren saber',t:'Radio pasillo',d:'El lado humano y curioso de Ridery: lo que normalmente circula por el pasillo, contado por nosotros, con información verdadera y buen tono.',e:['Detrás de cámaras de un lanzamiento','Nuevos ingresos, cumpleaños y logros personales','Anécdotas de la calle y de nuestros conductores']},
+ {k:'Tu voz',s:'Una pregunta por semana',t:'Tu voz',d:'Una pregunta, encuesta o espacio para que el equipo responda. Así la comunicación va en dos sentidos y medimos el pulso interno.',e:['Encuesta rápida de una pregunta','Preguntas al Leadership respondidas la semana siguiente','Reconocimientos entre compañeros']}
+];
+const cb=$('#capBlocks');
+cap.forEach((c,i)=>{const b=document.createElement('button');b.setAttribute('aria-pressed',i===0);b.innerHTML=`<span>${c.k}</span><small>${c.s}</small>`;b.onclick=()=>{cb.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));showCap(i)};cb.appendChild(b)});
+function showCap(i){const c=cap[i],el=$('#capDetail');el.innerHTML=`<h3>${c.t}</h3><p class="muted">${c.d}</p><ul>${c.e.map(x=>`<li>${x}</li>`).join('')}</ul>`;refresh(el)}
+showCap(0);
+
+
+/* ---------- Interna ampliada ---------- */
+const chans=[
+ {n:'Slack: general y por unidad',r:'Lo oficial',c:'var(--azul)',d:'#ridery-al-dia para todo el holding y un canal por unidad de negocio para lo suyo. Solo publica Corporate Communications; el equipo reacciona y comenta.',f:'Cuando hay noticia',o:'Beatriz Noriega'},
+ {n:'La Cápsula',r:'Lo semanal',c:'var(--turquesa);color:var(--noche)',d:'Edición general semanal con espacio para todas las unidades, y cápsulas por unidad cuando la información es solo para ese equipo.',f:'Jueves',o:'Beatriz Noriega'},
+ {n:'Video con Tito',r:'Lo emocional',c:'var(--fucsia)',d:'La Cápsula en 60 segundos, en formato vertical, presentada por Tito para noticias generales.',f:'Semanal',o:'Beatriz Noriega con Brand Operation'},
+ {n:'Aviso rápido por WhatsApp',r:'Lo urgente',c:'var(--noche)',d:'Solo contingencias e información no sensible, para quienes no viven en Slack. Lo delicado se queda en canales internos.',f:'Solo si es urgente',o:'Beatriz Noriega'},
+ {n:'Pregunta abierta',r:'La conversación',c:'var(--azul)',d:'Un espacio permanente donde los equipos envían preguntas y comentarios, con su nombre o de forma anónima, y reciben respuesta del responsable.',f:'Siempre abierto, respuestas semanales',o:'Beatriz Noriega con los líderes y People'},
+ {n:'Hub en Notion',r:'La consulta',c:'var(--turquesa);color:var(--noche)',d:'Donde vive lo permanente: organigrama, políticas, preguntas frecuentes y ediciones anteriores de La Cápsula.',f:'Siempre disponible',o:'Beatriz Noriega y People'}
+];
+$('#chanGrid').innerHTML=chans.map(x=>`<div class="c"><span class="role" style="background:${x.c}">${x.r}</span><h4>${x.n}</h4><p>${x.d}</p><div class="meta"><span><b>Frecuencia:</b> ${x.f}</span><span><b>Dueño:</b> ${x.o}</span></div></div>`).join('');
+
+const topics=[
+ {k:'Nueva flota o lanzamiento',a:'Todo el holding, con espacio para las demás unidades',v:'Tito',ch:'La Cápsula general y video',src:'SVP del negocio',val:'CEO o SVP'},
+ {k:'Cambio de pricing en Ride Hailing',a:'Solo Ride Hailing',v:'Líder de la unidad',ch:'Canal y cápsula de Ride Hailing',src:'Célula Match & Pricing',val:'Head Ride Hailing'},
+ {k:'Meta del mes de Zupper',a:'Solo Zupper',v:'Líder de la unidad',ch:'Canal y cápsula de Zupper',src:'Head Zupper',val:'Head Zupper'},
+ {k:'Logro de un equipo',a:'Todo el holding',v:'Tito',ch:'Radio pasillo o En qué estamos',src:'Líder del área',val:'Beatriz Noriega'},
+ {k:'Nuevo ingreso',a:'Todo el holding',v:'People',ch:'La Cápsula, Radio pasillo',src:'People',val:'People'},
+ {k:'Cambio de beneficios o políticas',a:'Todo el holding',v:'People',ch:'Correo de People y hub en Notion',src:'People',val:'Chief People Officer'},
+ {k:'Cambio organizacional',a:'Primero la unidad afectada, luego el holding',v:'Líderes',ch:'Cascada con líderes, luego Slack y correo',src:'CEO y People',val:'CEO'},
+ {k:'Resultados del trimestre',a:'Todo el holding, con cada unidad representada',v:'Líderes',ch:'Correo o video corto del CEO',src:'CEO y CFO',val:'CEO'},
+ {k:'Incidente o crisis',a:'Según el alcance que defina el comité',v:'Líderes',ch:'Aviso rápido y Slack oficial',src:'Comité central',val:'Comité central'}
+];
+const tp=$('#topicPick');
+topics.forEach((t,i)=>{const b=document.createElement('button');b.setAttribute('aria-pressed',i===0);b.textContent=t.k;b.onclick=()=>{tp.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));showTopic(i)};tp.appendChild(b)});
+function showTopic(i){const t=topics[i],el=$('#topicRes');el.innerHTML=`<div><b>Audiencia</b><p>${t.a}</p></div><div><b>Habla</b><p>${t.v}</p></div><div><b>Canal</b><p>${t.ch}</p></div><div><b>Fuente</b><p>${t.src}</p></div><div><b>Valida</b><p>${t.val}</p></div>`;refresh(el)}
+showTopic(0);
+
+const units=[
+ {t:'Ride Hailing',s:'Mobility',lead:'Isabella Morán',c:'var(--azul)',ch:'#ridehailing-al-dia'},
+ {t:'Zupper',s:'Mobility',lead:'Stefanny Circeli',c:'var(--fucsia)',ch:'#zupper-al-dia'},
+ {t:'Advertising',s:'Mobility',lead:'Gustavo Oliveiro',c:'var(--noche)',ch:'#advertising-al-dia'},
+ {t:'Ridery 360',s:'Mobility',lead:'Por asignar',c:'var(--azul)',ch:'#360-al-dia'},
+ {t:'Ubroi',s:'Mobility',lead:'Saul Catagua',c:'var(--noche)',ch:'#ubroi-al-dia'},
+ {t:'Emprende con Ridery',s:'SVP · Chavi Estrada',lead:'Chavi Estrada',c:'var(--fucsia)',ch:'#emprende-al-dia'},
+ {t:'Ridery Pay',s:'Reporta al CEO',lead:'Alfredo Quintana, Errol Irrausquin',c:'var(--turquesa);color:var(--noche)',ch:'#riderypay-al-dia'}
+];
+$('#units').innerHTML=units.map(u=>`<div class="unit"><div class="uh" style="background:${u.c}"><h4>${u.t}</h4><span>${u.s}</span></div><ul><li><span>Fuente</span><em>${u.lead}</em></li></ul><p class="ch2"><b>Canal propuesto:</b> ${u.ch}</p><div class="corr">Corresponsal: por designar por el líder</div></div>`).join('');
+const svc=[['Tecnología','Diego Fernández, CTO'],['People','Andrea Pinto, CPO'],['Finanzas','Ramiro Molina, CFO'],['Legal','Ramiro Molina, Juan Velutini'],['FP&A','Regina Linares'],['Relaciones institucionales','César Machado'],['Brand Operation','Elymir Antón'],['Customer Experience','Marioly Meza'],['Market Insight','Kevin Alvarado'],['Administración y Tesorería','Andrea Infante, Adelina Africano'],['Corporate Communications','Beatriz Noriega']];
+$('#svc').innerHTML=svc.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('');
+const aud=[
+ {w:'Todos los colaboradores de Ridery Holding',ch:'#ridery-al-dia, La Cápsula general y Pregunta abierta',ex:'Nuevas flotas, resultados del holding, cambios organizacionales, Radio pasillo',p:'CEO, SVPs y People',r:'Equilibrar: todas las unidades tienen su espacio'},
+ {w:'Solo el equipo de una unidad de negocio',ch:'Canal de Slack de la unidad y cápsula de la unidad',ex:'Pricing, metas, procesos y lanzamientos que solo opera esa unidad',p:'Líder de la unidad',r:'Segmentar: no sale de la unidad sin acuerdo de su líder'},
+ {w:'Una célula o grupo específico',ch:'Canal del equipo o mensaje directo del líder',ex:'Cambios de proceso y prioridades del equipo',p:'STL o gerente',r:'El líder comunica; Corporate Communications apoya con formato si se lo piden'}
+];
+const audChips=[['Ride Hailing','Zupper','Advertising','Ridery 360','Ubroi','Emprende con Ridery','Ridery Pay','Áreas corporativas'],['Ride Hailing','Zupper','Advertising','Ridery 360','Ubroi','Emprende con Ridery','Ridery Pay'],[]];
+function showAud(i){const a=aud[i],el=$('#audBody');el.innerHTML=`<div><b>Quién lo recibe</b><p>${a.w}</p></div><div><b>Canal</b><p>${a.ch}</p></div><div class="wide"><b>Ejemplos</b><p>${a.ex}</p></div><div><b>Quién lo pide</b><p>${a.p}</p></div><div class="wide" style="grid-column:1/-1"><b>Regla</b><p>${a.r}</p></div>`;$('#audChips').innerHTML=audChips[i].length?(i===0?'<span style="border:0;padding-left:0;color:var(--ink-2)">Todas juntas:</span>':'<span style="border:0;padding-left:0;color:var(--ink-2)">Una a la vez:</span>')+audChips[i].map(x=>`<span>${x}</span>`).join(''):'';refresh(el)}
+document.querySelectorAll('#audSeg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#audSeg button').forEach(x=>x.setAttribute('aria-pressed',x===b));showAud(+b.dataset.a)});
+showAud(0);
+
+
+/* ---------- Externa ---------- */
+const ext=[
+ {k:'Posicionamiento',q:'Pasar de una marca asociada a la política a un ecosistema tecnológico venezolano que resuelve cómo moverse, enviar y emprender, para todos los venezolanos.',ch:'Cómo lo voy a ejecutar',c:'Narrativa institucional centrada en el presente: movilidad, empleo, seguridad, conductores y emprendimiento. Contenido de liderazgo en LinkedIn y presencia en espacios del ecosistema tech y empresarial.',fh:'Primer paso',f:'Redactar la narrativa institucional y validarla con Leadership.'},
+ {k:'Vocería',q:'Las caras de Ridery son el CEO, Gerson Gómez, y Relaciones Institucionales, César Machado, bajo una política de neutralidad institucional: Ridery habla de su negocio y de su gente, no de política.',ch:'Cómo lo voy a ejecutar',c:'Definir qué temas lleva cada vocero, preparar mensajes clave y una línea para preguntas sensibles, y acompañar cada aparición para que sume a la misma narrativa.',fh:'Primer paso',f:'Acordar con el CEO y Relaciones Institucionales la distribución de temas y los mensajes clave.'},
+ {k:'Reputación',q:'Medir cómo se percibe Ridery hoy y volver a medir en seis meses, para saber si la reconstrucción está funcionando.',ch:'Cómo lo voy a ejecutar',c:'Una medición inicial de percepción y de conversación en medios y redes, incluyendo cuánto sigue asociada a temas políticos, y una segunda medición a los seis meses con la misma metodología para comparar.',fh:'Primer paso',f:'Definir la metodología y levantar la medición inicial.'},
+ {k:'Medios y PR',q:'La relación con los medios de comunicación clave a nivel nacional ya está en marcha, con el apoyo de una agencia externa.',ch:'Cómo lo voy a sumar',c:'Alinear el trabajo de la agencia con la narrativa institucional y los principios de la reconstrucción, para que cada nota y cada entrevista empujen en la misma dirección.',fh:'Próximo paso',f:'Revisar con la agencia la agenda de temas y los medios priorizados.'},
+ {k:'Relación institucional',q:'El área de Relaciones Institucionales ya está creada y haciendo un buen trabajo en la relación técnica con las autoridades.',ch:'Cómo lo voy a sumar',c:'Acompañar desde comunicaciones: que lo que se trabaja con las autoridades se comunique, cuando haga falta, con la misma voz y los mismos principios de neutralidad institucional.',fh:'Próximo paso',f:'Definir con César Machado cómo coordinamos los mensajes de cara al público.'}
+];
+const recon=[
+ {r:'Honestidad',n:'Reconstruir no es borrar',d:'No negamos ni reescribimos el pasado. Tenemos una línea breve y honesta para cuando pregunten, y llevamos la conversación a lo que Ridery es hoy.',c:'var(--azul)'},
+ {r:'Neutralidad',n:'Hablamos de lo nuestro',d:'Movilidad, empleo, seguridad, conductores y emprendimiento. Ridery no toma posición política.',c:'var(--noche)'},
+ {r:'Ritmo',n:'Gradual, no abrupto',d:'Un quiebre brusco se lee como oportunismo y pone en riesgo la relación con el regulador. El cambio se construye con constancia.',c:'var(--turquesa);color:var(--noche)'},
+ {r:'Voceros',n:'Más de una cara',d:'La vocería se reparte entre el CEO y Relaciones Institucionales, para que la marca no dependa de una sola persona.',c:'var(--fucsia)'},
+ {r:'Pruebas',n:'Hechos antes que declaraciones',d:'Datos de seguridad, historias de conductores, impacto de Emprende con Ridery y validación de terceros: gremios, universidades, aliados y medios independientes.',c:'var(--azul)'},
+ {r:'Medición',n:'Lo que no se mide no cambia',d:'Seguimos mes a mes cuánto de la conversación sobre Ridery sigue asociada a política, y cuánto habla de lo que hacemos.',c:'var(--noche)'},
+ {r:'Prevención',n:'Preparados para lo que no controlamos',d:'Cuando un tercero vincula a Ridery con la política: no amplificamos, no confrontamos en público y volvemos a nuestros mensajes.',c:'var(--turquesa);color:var(--noche)'}
+];
+$('#recon').innerHTML=recon.map((x,i)=>`<div class="c"${i===recon.length-1?' style="grid-column:1/-1"':''}><span class="role" style="background:${x.c}">${x.r}</span><h4>${x.n}</h4><p>${x.d}</p></div>`).join('');
+const et=$('#extTabs');
+ext.forEach((x,i)=>{const b=document.createElement('button');b.role='tab';b.setAttribute('aria-selected',i===0);b.textContent=x.k;b.onclick=()=>{et.querySelectorAll('button').forEach(y=>y.setAttribute('aria-selected',y===b));showExt(i)};et.appendChild(b)});
+function showExt(i){const x=ext[i],el=$('#extBody');el.innerHTML=`<div class="ext-body"><div><h3>Qué es</h3><p>${x.q}</p></div><div><h3>${x.ch}</h3><p>${x.c}</p></div><div><h3>${x.fh}</h3><p>${x.f}</p></div></div>`;refresh(el)}
+showExt(0);
+
+/* ---------- Gobernanza ---------- */
+const gov=[
+ {k:'Lanzamiento de producto',que:'Área de negocio y Leadership',como:'Corporate Comms (narrativa y medios) con Brand Ops (campaña al usuario)',val:'Leadership',eje:'Brand Ops hacia usuarios; Corporate Comms hacia medios y equipo',n:'Si el lanzamiento llega a usuarios finales, Brand Ops lidera la campaña y Corporate Comms cuida la narrativa institucional.'},
+ {k:'Cambio organizacional',que:'Leadership y People',como:'Corporate Comms',val:'Leadership y People',eje:'Corporate Comms en La Cápsula, Slack y correo; líderes en cascada',n:'Primero se informa a los líderes directos, luego al equipo completo, y nunca después de que salga hacia afuera.'},
+ {k:'Cambio para conductores',que:'Operaciones y Leadership',como:'Corporate Comms',val:'Legal y Leadership',eje:'Soporte a conductores con los mensajes definidos',n:'La Mesa Conductores queda en alerta preventiva desde el anuncio, porque es uno de los temas de mayor riesgo.'},
+ {k:'Tema regulatorio',que:'Leadership y Legal',como:'Corporate Comms',val:'Legal',eje:'Vocero institucional designado',n:'Ningún colaborador comenta temas regulatorios o con autoridades fuera de la vocería oficial.'},
+ {k:'Crisis',que:'Comité central',como:'Corporate Comms',val:'Legal y Leadership',eje:'Voceros designados y mesas activadas',n:'Corporate Communications lidera el mensaje. No se comunica nada sin alineación del comité.'}
+];
+const gt=$('#govTabs');
+gov.forEach((x,i)=>{const b=document.createElement('button');b.role='tab';b.setAttribute('aria-selected',i===0);b.textContent=x.k;b.onclick=()=>{gt.querySelectorAll('button').forEach(y=>y.setAttribute('aria-selected',y===b));showGov(i)};gt.appendChild(b)});
+function showGov(i){const x=gov[i],el=$('#govBody');el.innerHTML=`<div><b>Define el qué</b><p>${x.que}</p></div><div><b>Define el cómo</b><p>${x.como}</p></div><div><b>Valida</b><p>${x.val}</p></div><div><b>Ejecuta</b><p>${x.eje}</p></div>`;$('#govNote').textContent=x.n;refresh(el)}
+showGov(0);
+
+/* ---------- Crisis ---------- */
+const cr={
+ comite:{t:'Comité central',r:'Decide la postura, aprueba mensajes y activa a las mesas.',m:'CEO Gerson Gómez, SVP Mobility Isabella Morán, SVP Emprende con Ridery Chavi Estrada, Chief People Officer Andrea Pinto, Relaciones institucionales César Machado, Beatriz Noriega (Corporate Communications) y Legal (Ramiro Molina y Juan Velutini).',p:'Toda la organización.',s:'Se convoca ante cualquier caso de Nivel 3 o cuando una mesa escala un Nivel 2.'},
+ conductores:{t:'Mesa Conductores',r:'Escucha a los conductores, detecta descontento temprano y comunica con empatía, respeto y transparencia.',m:'Gerente de Experiencia del Conductor Ramón Morillo, Gestión de flota Lorena Lacalle, Célula Supply Aldeide Sánchez y Beatriz Noriega (Corporate Communications).',p:'Conductores aliados, flotas y grupos de conductores.',s:'Protestas o paros, cambios de tarifas o comisiones, retrasos en pagos, accidentes o incidentes de seguridad.'},
+ clientes:{t:'Mesa Clientes',r:'Cuida la experiencia y la confianza de usuarios y empresas, y responde en los canales donde están.',m:'Customer Experience Marioly Meza, Célula Trips Experience María Gabriela Laffe, Célula Seguridad y Antifraude Paulo De Andrade, Brand Operation Elymir Antón y Beatriz Noriega (Corporate Communications).',p:'Usuarios, clientes empresariales de Ridery 360 y comunidad digital.',s:'Quejas virales, caídas de la app o pagos, incidentes de seguridad en un viaje, problemas con un cliente empresarial.'},
+ institucional:{t:'Mesa Institucional',r:'Protege la licencia social para operar y la relación con quienes regulan, informan y se alían con Ridery.',m:'Relaciones institucionales César Machado, CEO Gerson Gómez, Consultor estratégico Fernando Rubio, Beatriz Noriega (Corporate Communications) y Legal (Ramiro Molina y Juan Velutini).',p:'Autoridades y reguladores, medios de comunicación y aliados estratégicos.',s:'Fiscalizaciones, cambios regulatorios, filtraciones de datos, declaraciones públicas no autorizadas.',v:'César Machado ante autoridades y en temas regulatorios. Beatriz Noriega define el mensaje.'}
+};
+document.querySelectorAll('.node').forEach(n=>n.addEventListener('click',()=>{document.querySelectorAll('.node').forEach(x=>x.setAttribute('aria-pressed',x===n));showCr(n.dataset.c)}));
+function showCr(k){const x=cr[k],el=$('#crisisDetail');el.innerHTML=`<h3>${x.t}</h3><p class="muted">${x.r}</p><dl><div><dt>Quiénes la integran</dt><dd>${x.m}</dd></div><div><dt>Públicos que atiende</dt><dd>${x.p}</dd></div><div><dt>Cuándo se activa</dt><dd>${x.s}</dd></div>${x.v?`<div><dt>Vocero</dt><dd>${x.v}</dd></div>`:''}</dl>`;refresh(el)}
+showCr('comite');
+
+/* ---------- Riesgos ---------- */
+const risks=[
+ {n:'Asociación política de la marca',p:'alta',i:'alto',mesa:'Institucional',sig:'Menciones de Ridery por actores políticos, apariciones públicas de voceros en espacios de gobierno o reactivación de contenido del pasado en redes.',r:'No amplificar ni confrontar, volver a los mensajes institucionales y activar la línea preparada para preguntas sensibles.'},
+ {n:'Incidente de seguridad en un viaje',p:'media',i:'alto',mesa:'Clientes y Conductores',sig:'Reporte en soporte o mención en redes de un usuario o conductor afectado.',r:'Contacto directo con el afectado, postura de cuidado y colaboración con autoridades.'},
+ {n:'Accidente vial con unidad Ridery',p:'media',i:'alto',mesa:'Conductores',sig:'Reporte del conductor, fotos en redes o llamada de un medio.',r:'Verificar hechos, priorizar la atención a las personas y preparar declaración de apoyo.'},
+ {n:'Protesta o paro de conductores',p:'media',i:'alto',mesa:'Conductores',sig:'Malestar en grupos de WhatsApp, caída de conexiones, convocatorias en redes.',r:'Escucha activa, explicación clara de las condiciones y canal directo con líderes de conductores.'},
+ {n:'Fiscalización o cambio regulatorio',p:'media',i:'alto',mesa:'Institucional',sig:'Anuncios oficiales, operativos en calle o rumores en el sector.',r:'Postura definida con Legal y un único vocero institucional: César Machado.'},
+ {n:'Filtración de datos',p:'baja',i:'alto',mesa:'Institucional y Clientes',sig:'Alerta de tecnología o publicaciones con datos de usuarios.',r:'Transparencia temprana sobre qué pasó, qué se está haciendo y qué debe hacer el usuario.'},
+ {n:'Queja que se vuelve viral',p:'alta',i:'medio',mesa:'Clientes',sig:'Crecimiento rápido de menciones o un influencer involucrado.',r:'Responder rápido y en el mismo canal, y resolver el caso en privado.'},
+ {n:'Contexto país (combustible, luz, conectividad)',p:'alta',i:'medio',mesa:'Clientes y Conductores',sig:'Fallas de servicio generalizadas o escasez reportada.',r:'Mensajes preventivos y útiles para usuarios y conductores, sin dramatismo.'},
+ {n:'Rumores internos que salen afuera',p:'alta',i:'medio',mesa:'Comité central',sig:'Preguntas repetidas en Slack o capturas internas circulando.',r:'Contar primero adentro con La Cápsula y aclarar rápido lo que no es cierto.'},
+ {n:'Caída de la app o fallas de pago',p:'media',i:'medio',mesa:'Clientes',sig:'Aumento de tickets y menciones en redes en minutos.',r:'Aviso inmediato en app y redes, actualizaciones periódicas y cierre cuando se resuelva.'},
+ {n:'Declaración no autorizada',p:'media',i:'medio',mesa:'Institucional',sig:'Un colaborador o aliado citado en medios o redes.',r:'Aclarar la postura oficial y reforzar la política de vocerías.'}
+];
+const P=['alta','media','baja'],I=['bajo','medio','alto'];
+const lvl=(p,i)=>{const s=(2-P.indexOf(p))+I.indexOf(i);return s>=3?3:s>=2?2:1};
+const mx=$('#matrix');let html='';
+P.forEach(p=>{html+=`<div class="ylab">Probabilidad ${p}</div>`;I.forEach(i=>{html+=`<div class="cell lv${lvl(p,i)}">${risks.map((r,ix)=>r.p===p&&r.i===i?`<button class="rk" data-r="${ix}" aria-pressed="false">${r.n}</button>`:'').join('')}</div>`})});
+html+=`<div></div>${I.map(i=>`<div class="xlab">Impacto ${i}</div>`).join('')}`;
+mx.innerHTML=`<div class="ylab" style="grid-row:1/4;grid-column:1;display:none"></div>`+html;
+mx.querySelectorAll('.rk').forEach(b=>b.onclick=()=>{mx.querySelectorAll('.rk').forEach(x=>x.setAttribute('aria-pressed',x===b));showRisk(+b.dataset.r)});
+const lvlColor={1:'background:var(--turquesa-tinte);color:var(--accent-ink)',2:'background:color-mix(in srgb,var(--ambar) 30%,var(--surface))',3:'background:var(--fucsia);color:#fff'};
+const lvlName={1:'Prioridad baja',2:'Prioridad media',3:'Prioridad alta'};
+function showRisk(ix){const r=risks[ix],l=lvl(r.p,r.i),el=$('#riskDetail');el.innerHTML=`<span class="lvl-pill" style="${lvlColor[l]}">${lvlName[l]}</span><h3>${r.n}</h3><p class="muted">Probabilidad ${r.p}, impacto ${r.i}.</p><dl><div><dt>Señal temprana</dt><dd>${r.sig}</dd></div><div><dt>Mesa responsable</dt><dd>${r.mesa}</dd></div><div><dt>Línea de respuesta</dt><dd>${r.r}</dd></div></dl>`;refresh(el)}
+mx.querySelector('.rk[data-r="0"]').click();
+
+/* ---------- Protocolo ---------- */
+const lv={
+ 1:{d:'Un caso aislado, sin exposición pública. Se resuelve en el área con acompañamiento de Corporate Communications.',t:['Inmediata','Menos de 1 hora','Menos de 2 horas','Solo si aplica','Respuesta directa al afectado','48 horas'],x:['El área reporta el caso a Corporate Comms.','Comms y el área confirman alcance y que no escala.','Respuesta personalizada con el tono de Ridery.','Se informa a los involucrados internos.','Sin comunicado público, solo canal directo.','Cierre del caso y registro en la bitácora.']},
+ 2:{d:'El caso se viraliza o afecta a un grupo. Se activa la mesa correspondiente y se informa al comité.',t:['Inmediata','Menos de 30 minutos','Menos de 2 horas','Antes de lo externo','Menos de 3 horas','Diario hasta cerrar'],x:['Alerta de la mesa o del monitoreo.','Mesa activada; se decide si escala al comité.','Mensaje de espera validado con Legal.','Líderes y equipos de contacto con público informados.','Respuesta en los canales donde está la conversación.','Reporte diario al comité y cierre con aprendizajes.']},
+ 3:{d:'Riesgo grave para personas, la reputación o la operación. Se convoca al comité central de inmediato.',t:['Inmediata','Comité en menos de 30 min','Mensaje de espera en 1 hora','Antes de lo externo','Vocero oficial','Continuo y posterior'],x:['Cualquier mesa o líder activa la alerta.','El comité define nivel, postura y vocero.','Primer mensaje: qué sabemos, qué hacemos, cuándo volvemos a informar.','Todo el equipo recibe la postura oficial y la instrucción de no comentar.','Comunicado, atención a medios y autoridades por vocería única.','Actualizaciones periódicas, cierre y sesión de aprendizajes.']}
+};
+const names=['Detección','Evaluación de riesgo','Definición de mensaje','Comunicación interna','Comunicación externa','Seguimiento y aprendizajes'];
+function showLvl(l){const x=lv[l];$('#lvlDesc').textContent=x.d;const el=$('#steps');el.innerHTML=names.map((n,i)=>`<div class="step"><div class="n">${i+1}</div><h3>${n}</h3><p class="time">${x.t[i]}</p><p>${x.x[i]}</p></div>`).join('');refresh(el)}
+document.querySelectorAll('#lvlSeg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#lvlSeg button').forEach(x=>x.setAttribute('aria-pressed',x===b));showLvl(b.dataset.l)});
+showLvl(1);
+
+
+
+
+
+/* ---------- Equipo ---------- */
+document.querySelectorAll('#orgSeg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#orgSeg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#org-hoy').hidden=b.dataset.o!=='hoy';$('#org-prop').hidden=b.dataset.o!=='prop'});
+/* ---------- Tito presentador ---------- */
+const TF="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYEAAAGkCAMAAADg5mmTAAABgFBMVEUgbV2W4c6j5NSY4c7b9/NTsJwgKDWcoqMkiG/U6eeq6Nlr1LZz3MHZG2bR9vBZWmQpNENaX2YDfHwzNUQ4pYngcpM3OEcA/wBOTlurMWQrLDucnKNu07fHhppj07RbNUuGzLk8z6l528EWF2wA/38uLzyYb4d43MI9QE1aqakHUT1ht6B1doMsLzd5eoiE0bzL9e0AAP9FSlVFiHyqTHaF0r26u8M+Qk2a5rJhvqNm67C8vMr/AAD//wBCPE1+2cOIfYvotOjAv8hCP01VVTh/f/9/v3//v78AAABU2rcoKkD8/f0HQDMnKjz7ZY9IvZ3+/v5G4bZo1rgAAANNx6YKPDLbGmc847R///8BBCF//39tybF9fn4A//9EwJ5t17kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACg2AkbAAAAYHRSTlP+7GCcJ/vx///+K6Ty/1Mp8v4Dnv7/ZAFY/6cUZv/Y/+r+pRICaP9qZwT/Zf8iH6OYAZr6/2b/nR6fFRcBASwvGg//jQkCBAQA/v7///3//gX++v7+/v/+Av4C/QMB/tWP/PKKAAAwgUlEQVR42u2dCWPTOPrwfcTOSZI2oS1t6RYYBpgL5tqZnd39X+9lh5rIwhkyOb//t3gl+YgPyZYdOXHAmqFAad3k+ek59UiSjHrsN+b4A2gA/495h1Sdt/LiRfSv5+Ie/WPoseJfeENVZVltAGCcOIETHQ0VkrGV1T5ShhMmcDMY/Mf3339/MUL/od8Hg8GNsGcPBvi51y9HL78X+FRsfUBfXpre6Mn9EyUABhe/XVzrljWZWN4H/HFyfX3x09UA7Pv0FxcjnTzRffL1a3EM5gaQoRkMiBCcl0lgfYl+iRb+4OX1tS+g5LAs/friojgFBBeJfxJ5ujW6AoJe/sJQYIgAYqAY56AsAiv/TYmc+yO28HcQLH10MShm2EbJhyMeligEmEAYgI0RrNalEJh7sgei1ACJfzf3Lcu1PN4fIn8JVCEvhB9eX1s0nnhciEHwlfHKjI2eUpoVaqhdNJ6rjX0R4Hjw5mpEpBshQB/BP+ujPAr+5kpPe7gYLfjKuDUTCPr5wlKJW/4Q2nhAWdkXAbY+rq+NzUwWgYn3B310xelFf7i4tiL2LfZIyxoIItCLiB/bJLkRWGxhBIDRD7n8+/5evgAMRkOLav3Dn9z90ROaN591HgY3r4euxU95/qhRkg6YUAV5tICHwMpoRGOufJBjofkokEz4d8tiueSQ/MlfhpkG5GqU4dzJc64EpMfnST/gBkQLoQTAJVDjIde8sP3RaTMyjUBMLdDH0UuQitjKBIAfcyFAB1axWMgbKlgLJbCO/xikZpeFajONn4aWNUmZ6hwE0NA/XjOtOLjgYEkeNhJCoAPpSgAEEgBGA9rRHyCDIp4AXF178Y/FQMBBwCIEPuoMNcAKwKEB+GHXIlzxpdG1KQTegjUQRgAJW43/hLsiBG5GQRwSCXGCv2Qx8AlYf/3110eqGtxckAjLOhwBZIZMm6oEc2EEFklTZ3cLELgaRuXuSvzsu2bzu7OJWzjgIUBUgCDQLygemGv+CyQwp5sh8y2/hLIIXK6NhArY29wEGq936ddu6p+12+/xaH/nZcdcBP7CBDCDqCXCCnBwAmsjFqXslGAliADyAtvk8/s5g6Gb3ezcqcFZ830wmkMrmqOxCSAv4CO4vokpgMWNQIwnxvLpbE1qOMQ7SaVsL5BkvG3k04HBtRWPOS1La78PjfaQVwcwARfBXx/1QeDlQy6GLxoVQwClBF0aAX4RSVl2rt9LPD2vH7gaWrGoHynA399HR9N1Ddn5wF87Ai6CHz0vHzJwkwNlZG5AemfvY4YyCShUP3OZC8BOfF5AM2x6CoDcsG+Mzqxhlh3HstV96buDaMFgaIV8DJ8V0kWt06ypASm/Gcr0Ayrl6bmyblcDfONDIJz9j2d6ziwd/XdGcMhDK5vAxELzP8zgo34FXuvcDnj3qAtBAJAZok1SUxZDAFeE9qx7EA3YEbB2CtBuuvVjSz/zcHDEMnoUAI5KR3wZQGSRZqIPRBFYGIDmi7diCMxRPkwh0OGvzP0wtKJFHW/Gv3//97Od7SZO4btsHcBeIGKEPv6lD3MDwD/ytbiVVroSCCJwTq085UgHbkbxoo5PoBmy2FbT/cwkU5Z64IQ9FJMcEWgoGrgW2DFBDdj502Ipo+xByzf4Y11jZCXr/d8FsY8/s10z9J2eqgMkj47O/49/5bf/rlO6MkQSoEXsS0EEACXYtVXelgwUpdOE0PTMvhX45qYbDGXkA5NwIPQRe+FQfMXtAjDIERBIwFgDhUrgfH8CK7qT4XTEL4wratXZs0PtIEayhm3fE6cLLxKJIhfgCzQvgpHQri0cr1DqBmp0MgKwmi8Wi/k8vn6WQYDmiM0OZyjUGEUaHiYJOzTxCnSBG6A5glCkH3bDLgCLa20nRmAy2GONj26Guj3KWqX7j0ju5+dRdZiDHARoPqbBZ+HwYglNPn7sgye9m56F/xa3KX6WS5Ix7IddX4xdQLrnthIlCj/0uhJqgwiBbSwps7EVeoPEH3xNo9FRyCBd1iFHWoBAj5PAFaPMQIqiWOj/Q3KwUGxkUaQadDdM9L9CgZA+yYpCGTUi8QCwPJPucunpAJJ859Xz7na7hUGHbweEEBQgwJnt3VwzViQDu4OlPgwKpO3vhrpFbXBwnxOJg/RJbvMTVOTEA/jKuE0UJqD8rgEaiiJDGLfkEMrqbhYX8APPOZPhFAEFdugsXCBFDCyL1Sth6SEXEKR3yTEcpgP46Z8GEE8g2TIBZVl+u4XU9RvcZh0gyIqFkpVR2OVLhnUrxUz48VCsQEpj4BEIxUHYBetkzGZDKTqGQ/z5MHx9OBvunvXbPw2jDB2guEtIW78Mt/yAovkAH4ELKz29ar6nDpeBFemnI5lAsDL2EUueSPtnTdOm6JcTDM0dLgufhBV8nFg/3YgNg1IIZIwAQVZO/Lzg4sNKTzFBEz8HoDJoRlrq3DCIBKJ4YeCjjoSLhLxcIv3u9ZJa3sOfhKbjghjqkfaA30oBQPXE2Qi80kJWbZSS7UGefOB1ypYAK1wfYjGIAnMXxnQsfMeELOsaZ7FcatrPRBuEdkxzRKM8Q37HQYDaCsBDgARCk9TWLD8eOms220l/YEWKESj61KWWpsEezD3VoIO1ASvDa1CSBhQj4LVdFSBgqtlTaWCl6YCXibnOWNKt4dlZ8+9hDF565m0dwGYf2Z1ezyw6IFIG6eeGYRhlaAG1LsSjpKThQcpYfaCt0PQyEwKQ3rrmJr6eHWrq0pkkoajm7Oum3A46J/zFRE/65p7DhsjwdgAwzi/n4lNitRABSPYBpBBAL3cNaA/PWqFZGYOsvge3Qcu1Q5qumZo2lqSH2Uw605p46UYnKZdODD/cW/x+dHi3VTtkYgGwrgIBleYHcA1vgYefstEIZC4QXGVnq2S90rVDZ5JjPjNx+NJCyqD7wYs+FCd+TxFs865LagJCt8NlEsCB8pQMJ1lhCxMA88V5VAcM0Jd71FB2npEMZCiBVwHy7NBMcp7h4SAKkuW1kKLpb4oftg1hV8H734UZI/pSbkj82tQbTioBMJ97OtDAFbxXr/BOffRLhvmbYW6uOes1umuHzmaaiQmYGopZ/Om/hGZJwza3sgqE6cHcSHHEeO77+SKtyrzwCbjSb3QUVQ6KeO4wC/TkDXTeOpkfD0kaVoGxpE+GEx3LvxTRw5BTcI0REABhzSaAjY+T8np2BBZY/IoKOXOdrCWCC/4G2rP3nh0yn40lvGpmIe873cnKtssiAbdqwzCK7gYKAzBYbiBd/l7Lg6cDjXcyhLniqFV6TYh3wdAK7JAm4R52Mv9t8yAD9tQ+2NsWsQlkAXBrnIgAWCF/K+ezuumdoxe8HTyheGhI5I/MEYTmwQYu1AvwyV36S84AQI5AIAQWRl/O/doV8C/mC/p/13mad8689i3kl2dI/uZhB5SV/dWA2jhqOhkAcF5FcmJAzXszy0pMJXhhDPIsnGM71P7aIgpQYvyTlhchBm+KM7g0AJUAskFcMpTAGsgF3jdUWGnlC+PKyrVsKDXPkAXC8jePM0huuihK4P8w9nBkqsCdaqwwgdRoNiWmTglIeQnszn1A7qCkAJQPQXcPU8TaSoYIZAj2roEUCFuh54Wymi17Y/1FPgIkAtWgedTxHDEopgaLogQc514BOBotVlm1U7Z15yVgzaRlzzzygEXVIIVABgA3JZPowSw9i463DS1EEMARkHl0+ROPXMgbIAJmfgJYvPYn+zm4lOJLnLiMF5SSpmwMkN28mIsATsGOrgCeWhcKilgEUhG4//bpk6kYUrSuRwp5muYXkxADzWFNGuZSGQcBv+FncnwPsG9QlEKAiQBNcpz4f0JKYEid6KERMfPjOBumGjCXyl5n7sez/D30egUsUBgBdsgrQQSwnB1WvQ6bIITAvmtInYwp6LCUyb7rUAm4TesZBLyiEHLB0KwUAljgFLdG12ZrgUOtl2In8In86kidzDoY057R9xFkZmRo5s/IdplKWaDw8lNeZ8Ai4K8ORJzsdLpxfQAxQ1wETFZ6/ZY6W15kLQ+gqT+zXAvUMys4EIKcYSmbgBfTkN+9pUoXiB0ikD0NWUrA2tEHrrP9gGVVUgPc94WcwVyUDuCV1+lms/FCS4eseaCBCaAPdx2psS1MgLld8KWV2SaBXUA15Y+PbVXzIXibR3K2HSJgd4EE3kLhBNJXaEgkNGtVFQBBIOc4u4Sxqd4THBY1GaZnfLy/EwI2jkY5qhIprpgeuX2fGY7OxvkskNftkZWns79fy/f9MMcx6oB+tocvOF/k9m7yB7/h/X6SAXpFgyFbZRyBnO6KcSU0lwvQxi00JEnCv42nuaU/HbvfTh4wzoYAveSM0xCtmeEolhuW8078vhHyfseNi5K70m8LJXAzTMnDSB6cIwjSAul5mzRauRgg8Uf3eLTGXPiXKud2Odyx9Zwtt53UXUvkGyQ3GEI+X7q8BArMAKCZ+QiAEZsA0QB+AFNP/FKIQiuHLYrJ3/3+scNliDh9AbtnjhCI2qCdLmACz9H3SrjlSy7mBpgEaFlxsCfVyhOFBgJsuUPKS8D/pvC3c6oRN4IVy5d6njjmCMhniAaQlhMJ/eov09YS2CU+NoEB3f3OrHwa4IwlIrbWeOxuVSIWvTXOYYRarvH3Gtfw90vuE7lyM75do4B+CpOnBHECnwIA5iscyUh4od5hBgmQVDFgPgLokSPaTl6SChMnzNcQ5LQozjNz+TUOsdUKf4cz9VSBBwHkPMMkVQlMuhXCFYpbXNaRAFDvcLTmsINApoYoxmXKPj7KXnqkBzl8wJiY7dae1VMnPqdcy8ZniBCCNU95FDDyWi08t7EC2DvJas+6/006tlA0ij6P1QBSa3spSvCKUUzHpaHkaRLEEOXxAcQEtRzRtQuIvHuL05twasElYLfNReyLbdr+xHZMvD6zRjqgQmSV0Kc3Uy1axXO8Kh6rzG2at8zlDDCKKwFxw7MWvzgdYrFbZSS9GEGrteH6Wi4EC1Y0420b2DihQWpEpDxKDq2U8LdiArb71Zvd6hiBh01WSk48T91RH1cCXcoxn10vUE7dAce4nP6cTwsA3RMQB+vv3vDHBi96kdTg0x2KtiQgEzET7xD6Wr+qTT6/oSPYdtivLbGZkjTFLfOJqdVyyiHA0dCWDwEjJ0AEArcb3kWAIyKiBGgOS25p1SYhk2+AXItlepkDSwnSD35NLBZXbUWSe+CrfTIRrEAfMkIhLxgN1UXdkNS0n7kEVCzjUPkuVkYlkSudwPM0AvHakGVVdEGGIy3oZ68dr2lbWkOVuVht2hUtqS5LhmJ+ChHyXfaujM0kkK6eIKYEueLQqi1cFrRDYRWwYwDIOuWWdGxhAp8CAl7CFlYXHCcxCKxTtzJFDofQpaV5qgOqRvadGviOSqoK2DY9J/vkRaM4H/A4fUoicFXAoQZuMP1KJnAdOmjdOmUAnIeHroxGL57QRpYHIjCwcpDzIXB12vuy4AvCSkC0g26EsnRzELr0sLqLwpzeuMHjCgw1Wm9xpqQ2alIIYHnbRIISIMoTIRCtX7BCIaiAf6e/pJe7Y41P1wnsErN1pifoa46dLGrajOFd2YT30KA4im2tkAmid99lH/iHcwLLUwF42gA4LtrDp6RPYw6TWZlzARA/Knn5XGQpx7dUJEvbJHfj+9XzLNt45evAiWYCkfQz8+0CdTmN5a64phYyP2bYtNi7E57AOY6jPn2yzaT9wb0upEgRR7CU32WHaODCPV1sdvoAiB1Ka+qdrxuQNJ1HEWw2jpsCf/LXKN0/kh2EwSln2BX0vHDV9BfRzKDDkeoK+BaQbnS3Nwt+BgSgkjrlVoaynJK+842TKC+bobzAndwoywuf9IdLe8vIIg2p4QUddui/eAv1Uu5fcpRt8amv1onHQT6B+7SLhxGdt1NCwIk5AwfvAAik55Y9NbVv+OLzTzVQNGccqqF6ZdJAgey4EjhLlae7ElepZ58FABJ+r+YpXgDiOavh/RfT2Gz2aqKIxIZAetsJXXUeEFiaDqU06hLAhitGYDNdcvU0DT4TG+TlZUz5X+I9wa6Ak71hxJFiXbj7x7e3vyp9I7y6KwVLzW5lIvjOIIXwlpWduGpN7/vG7xxK8Fm4Yb9EB9LPVwmtBETMNna9d91fO/63r0K5hecHgGx/embG+lk+hZ1HlMAGK9VdtjM+NwYaFHZSh33QbzP5I3AAvIMhHDd4dxk8c5xer4sPrOl2VcW9E/z8/HwVza4l34rhNYNPwYjVh8yYFcILmOhHoTmxzuxq3bseBGFPxqNX8MwPmzxD9kZvH5so0ztlcVEO+uFncJ4Wtkhqo9FQFG/ur1a0Cev7gd/NiA7EcmQz6okdb7FtmZWVgXXBQ/B2mbcsB8dgtttykQMY8CHcu6M0iz4krSAfbnoLKQEy1I3QYj5DRlKwG+0TPX92V3OQ2YkBIIYOZgREi4L7xUOii58FK8v5lArey8nDfQtDoF/F9u/wPEMud+MHRYoxB/PFarFOKSpJu8PqbNOmlOfcSCisAj5lx0tT0mpVRY5tSZG/ByHPWVQy/WTlogxUkJzM8b5PJCD3BHKu+zulYI3N9CIfO7meGWlYcTwbR4pOGAH7gCRg7GGDevJ75sHUMrf8mYdbv5eLntK6Sp65G3ubJDHAeRc/ASyt5343o0nRgJ0KOJvo0ZnI1N2wj4GUC5wTnSk7V3wczY+91Ge0C53qk5QqrgjFF4g3yEjjcJ0jY5J2PUd3HgFX7J/8ah55HlUDvPiA6Y1BUS+AVCtVdkR8y30UoLgaJA85XFF2MWFnoClcndfSzlcrW9vPgV1vEOIZygOmsdNjcZB8w1KBolFflux4LJH8PvshBRDE25XJpYhJbXSmXb5NsVJ4Mw4yZwjAMz8nNoMOx2Sk5X7OtQSMMull4UiUAwBGwG7nIuVfjme8l/PnGLHgg7V/Ay47fHtwQqcevzGA0t1tp3G8BA8HnaaDUhpIqkuU85OhTKsagkTvAK8J4gKAxZeSg/EBQM9Y5g/RIp5gbii9HKlDKgH8DUBRl0F5VHO8sirOStV3qub7AK7FAmB0YDk+gMMQLTkBFPAFdnQj+6Wh2uHTfAOZ9IvcjotrDKBz+607bn/99dfbV7doKAo5gErVpv7ecA7gc+Y224w5xgsAIejtq0ZpmsScIuGAFK+yUwmovAeExE6/B8yFuMs/kGPV3Dq3w6FzKMXoFiqJcc9etie1c1DMjcAO98uyNjDhrylGAJ/Ae35+/tW5P75C43yxwFkXim3uiSdgNNBF604rowPtsrxwlvTyUMwfEC2VEAF6wA1578bNugUlEV7eswjgn/kmtmhUsg1iSy/nQ+TcvtjPCeZGn+5Heo31qgQCGMGSeXRXtH9okX4tghAbxHSkOR+SWwmC+hxgBdwK/zUruQiQhgBmFB4NiA6iAvQJ3BPwDK7SBKDdGmlm7azYi8A69eIneXf+5apgPpxXBahKkPshuZWg50421t0PuKu8JAL45zJ+aLREdFmsJART7umjXBxHlx7jIe12uy1MCUgvNbPskudsnLwE2AgiLqpoPsyavc0zi9xJSbtJUY4XZWQqwDNL162zZlugGWIV36GS55S0vARYCOyIgZyTKw3yL9HTCbTPPvqDcqVrQgkoD2laKQ8oYoZQXrxYGf17+rsAl2USSL9+y0PgH+huizBCbf1jaJxlTWDKQ87CD2gKMkN4u4AAFShAIAuBcb5OOfgr3cFlA6BIUM5SgbOMBxSoDuHynNHQWF5gXi6BlLNE0NBQNoibKIt06VCNUEx+SQlmEWhmPaCIGZIbK/CWvq+in+/KxSIEUh0tbhD4Y9URlo4l5PdRb6dJL1GWblvxB1gUY5c7KevjXmmHWrLINwoRMN6wLw8iDaWGUqQmtGzzqEBiDscItHM/oFhlon8/pR0+JoOcx8UWI4CDnXsWAYSgWDpGc8RJFUBKEPuaXtpDkipAVYLcL1iWtelmSltBOz+EDuCUi6EFeAnhvt0TRYAygz9+bKdID3IgpChBbgI9ZIOSdXqY0w3vQQDXZakBBG7TmBbrxaGFQjqHAOU0X0JFeLY/AdxDpSUI4L1dl4ciwDjai7HxryCBts4hwFQCVlkEnuFTZONvVG3kvsumMAED2TsaAkLAFEWAakPijiCNAB1h0hEUcFx4r0bssIFtfgB7EMD7RiiZ2aawCvATiAkwPwFdBAFyWJYTS0fnxgEJGGsD16rtShNgKFE5BORGgcuc9iGANQ4f1CiKACUWyk8gFgu1SySAV2w3xQtCIgjQSkSb6aZ0Ajp/PlCmFSIEnEg/48EJUBAUd8S0nJg+hc/4c+K2xUegSAITa52C/UJ3ru9JwEdgh1/WpiABSl2obeUlEH+IzhWNFmnhjQXeyA1fGkcgYNyQht/IxHDEEaAnVM0ctdGz8gg4m1gX/+IoBOKGaB8CnMFQmiPmC4baQjbURDZS9FSwNo5DwFhFEEyd4gQorphmhs7yrJHRXLGIlNgjEIQdKih4wbEAAlEt2Dib4se0ygXWB9rQzqsETSFGCFeGps9whdo2YZFsWBwBvKPZR+DsowM0AngO6+7w5Pd1xvSNP0TiUAFYXAc0b30cHJOAi8D2X1VxAkkz1JaXLe+qWG2qSdLsY6xjJbmJIP4QOWSH9Nk3knRPNteHu4eKE/DO8JCL2iBRBEKGqHg6QKvquCdPBVfoQLjUYs3VHD1zvh2aST9rDvQjf3LQQXsPI+QlBM8c9CilMABRBHaGaLMXgfD8bVPPgOjh5al0H5rQpCa2ZBKWfizxwidWFPXDfkKA3B7cQwWEEcDnsxAEz6Z7nWYjR3b72qxF2na+3un2GfOcL/SswudMeJcE5OtSLI0AOcIAvZVnm71OrPfnb7uXumPb74igeAEIk0qQKmRYeN+/5wigaqyNChDw8gJnPwLe/M2elq4ayPE5OR5jvy3n3f29DwFNztEpXSoB4o6X+wSjAQJ5mT0x8URvh0XrjL07x1otTY4DsEsj4Gj72CCxBEhX75J5f1y6PIOvwYaZZ85C2A63ZDhj79I+l4LWztpwmTVsLgLaZvp7bPvWMQmQZrrlhm1v7dR37E37nsx3ef0yEtmMd1f3kT/9fJ/zHJZiOqBNuwCsq0MAb69lTuCoa7W9D9D7ND6IwBP8sohrxNZH07Tg4j2UeBWv+HgvMXEtCWWNZqkCo0oE0huro0CWy+V+J6BFzzlvtabB48h1V1LxUB8um95YpoVk+CgneT8vIJ6A8TvPYQZLrRl+i8GcE2cgsFf+uWC2i+X/+PEHPB43m/cwjcBdYz8NKIHAArAI2OE3+MEfTxEE0zZNKDhewVcq3ufeL0+mR/Pph914/LSpsV6ZgxvF3xhVI2B0MmdY+B1iBjAaEYnxkjggypntklCs2fwQG0+bJusW9HuwWp0aAST/x7F3iFS9hIORx/kuMk7o52PqHIkMTesXaNE6MgEYUwB3NJviU6ZCBJZJDXDnCFVBURy0MqpIgD2hbZjUANfYLu307IszR4r44hgBG7pnz6fZurCHihkiyngL9oyDjkDg/in9HX5opsnf0dy7ojUH5rpcN3r5J74O9Jtv0q8mbn5gjCYly4EdY38VODAByHyHj5tpsnyYkfHAfaMqyQ+kMdz52OAh6DHfSFP6PlSGBtBfnw07oIoE5sxDVZARYb9D6iRzRSk9BLKbPTxIY74ro7HWBHMdajv5k6d8M6Z7AebL+/A0+fpgwzgtAmkqgCcZtWwEHWkWEHhAAykCx7Xd0cuNHSJ/8t3e7w8PNAQpE+QxRQlgwR6t8glsmaHeUzaBD25ilpiWOwAPgQglLaOeQe5BD8z9WNp9v/+Qh2+mycpgygRBry/xI3vVJGAYoMtUgccp7/ApbXMmbMWEh5UA6wHNkDvj8dStzEk7fwuxFfOkHiKAHpHLCNHMpFxVAkYxAlRfPA3ZjZ0MZ+i/VnLht+WuDhDxewAg8gAh7Yn4gmk+AklHoIoIRksgcMk8UyJdy6kEpOj83wGYzZLuwF0YcJcJxk7gAdDXPsx87fFVCv1qxRGmGskPj+MEijZLl05gbvxnEUdMJeDsCEQ1gXyIh0WarwCB/FuS/+WzqB3Dn5HiJaEsAnE3pexbFi2NgDgd0B7SBnbJUQb4sjXNuyoBalj+D3QlIgTiNYv7HDqAf2xHhBs4JAE7P4HW7CFjYD2Au0zZX2KAeNmYGCAGgQcKgXQdeBonADv7l+XKIsA6CTc9FqIkBJJnwVP1AK9ORmRDihi+1ad/E/63b5w8M+Rx84QI9HtFYqEmJcaXsuTvzXJ3jX48HrueIJr/cutAWkZGMsbo2DYqaoUA++Sb9IwMUkOhWQYC8hU7ac9miaiTn8AyjUA8+s1xtPTBdYB5tg1S88c5sn4uKxTP12Yh489i4BFI5MQwV11ITDBaAgE0L5jdEnkrc61MAg/pWpKDQFZtFCaD0Xk1CeCrH7bMJah81ensWOihCCCXQCuHp3qcrFrddURkxCURaGxtxjp482lKpJGMhTRuMYfsfoYTCAhodvIFsqZIcrE+19nSByaQdgcTa5I16Qux028eZjlme8z+s+0T/mdpalNX6lmRchzXLfjKqK4OpFwQQ0XwtEm/SsSRZnvbIRYCib4gTVvIpgEwfxexPFMWAcDu04EhBI9373BJ7xaCrXIAYAItmPoCdx8+0JppbFFuoJTq9L9AP23LCu5HeBwpyd0zv1YrDcCDlt7R9HjXM0ftHd1WmcDKANu0xrRI09xjogB2yiLxw0w8gAdKPhZp23r6mIynfmNrkgCoMIHs2/iCt/g0o10OttzymmgElNUBavP0MlwJsiOLA5UmsMq+/wH3ru/a15ltQHD6MCtBC/AycfY2KeZfzFyXLR2DwNzo3PM0afL0wUkl6AA2Qjn7SeOvVEynSokE8MZWO2t68fT9IF+cFtgXNkLjPXuFnwNRwiqFAPOKnCJd6JK3JrnDENeJWWIpM7WQSl0fyzsUIZXp8gjMxRGA4/DScFiQlOobL4GH8b6vSlBZrjQCKC3umcKUINyvEhF37M+zGU/hQogK5D/g+8AE8J2xwpUgTc58BIKK0b5eQFwsWhqBhWuGxGzLkHxfPAu3b8WcAB8BdwVnbxWAHaPinrjwhWT0LlBX4PHaZ3hRMmVBjLJeoO2rnz1QeQLGWpwZwonxQzQmZa0FZy2YeQWJvV+QCi6NqhMoejcrKyKdPYQt0UzX/+YPXY/oQQaBB0rXdH4CfWGxaHkE/lXwclZmiXQnYyz8J2g8wgP/4YmL4SGjfOFvIWjt92LsIledHIEAuaNbHAK/aQKL/8mjP+MDgfibHkoaGE0qxAzt7YaFRkIlEsD31JsC7RCRno4m/5/08QhpQmihmG2Hxnu/mJ5IFSiPgMi82C0PYfk/+pM1HhEIeijvLVKV5lUB4xQIAPZ2pkLx0OxvxPQz5f8n+rcnLoNiCzPc+XDfACdBwDgXqQTm8uwJEfKjP1kUXDV4ojPL2XgP5XT/VyLUC5RKYLHuiDwuQvvlUTDXaeJ/5EJApojmB7zmldb+r2MrbGWgfAJpPRMF7FDzCXv6/+nZJ/yRZonEAYCqWABlEjBAas+EUAS+gyC/uWpQRj3IzcZOhwAaqikYQcoI3PQjgiDZpyhpe78E21SFtKwfioDQgBR7469TEfwZGKJAC9xtlOTjTJoKeDFi9tEfTgcugVAl8BCwvUE4P4sQwGGQJgKACgSrQMkEViLrcy6CR/Hwh40gBGAmBoDAFokDEVgDpAS2oKUa6CPIVoGQO54J1ID9jrk/jideMfYS7G+IHmUj0N0YlJyJIwQASoeBaABlE+Bpn8sRiOwMEZcv0N2VeeyExQRjagkSKpsAAIKdMW46fcJlh/70s2MRYairAuJtUPkEmHuaiuuBDZu/PPmTRw+euOs2raUYNdzntpkjEvDbJoRaIg05Aw49ePQ3HSnAWNCPF16POBQBpLk9wXbIhPfNXzLFT0pEolyASdYmwUkSEOqMQxWKID9+FM+Kd395dPazsJ941ykFwCEIgEugloDg3vMGjNoQ/v/J1+KOU+6pxnp9ogSwM743xY+l1vzlkV8LepSoDyH5awLBo1SgHOkcgoD44oTnk6HmR0WRdTK8kvZE5PwnRemSAByGwHphiLRD4ZsiltrXv+DeISL4R0Eu9rXg49xRIGqcMgHcQVfahTxIEZqYgm+OnvzytaYFGyChkJKUXUoudkgC+NAhCIWdcA8jf7TxzkctuFdFW4q3eL0S6kEHJ2CUEA9FkUJy4JydgmsPG3R54lYozx1N1RsIwMo4eQI4HpJPE4Gt7nXvZGUI4BMA5ZMk0GuUqQIHJIAyyv79CQLYCl+bPxYBUiDanh6ATqkacFgCxpsyanQle+GOyE71oxMA56cWEEGlXBN0aAJ+TGrbpwJARZPmsyIQIDgZACWmYschcFKZGVTLqwYdjwA+Au1EEBwGwOEJnIwWHAjAEQjgnR0ngGCrHAbAMQicghbYKBE7DICjEEA5TtURIABvDgPgOASwFlS6QLFtlJ0JH5sAVnBFrmxqdkgAxyJggBXoV3S9QOzBHZUlgEejks4Aqg1Rh7lWnACopj/GacDcML4MHcD+GFaLAewpBwZwVALYH1fLGUC5f6g0oBoEDLAGjQot2mAXsDowgCMTIEPBagCroAAdYKwP/vaPTgA5g34lHDJWgENboIrogOEmyMdNzuB9B5/HY3yZBFDsgbzBMQlAogCLo7z7augAeu999XhaANWDx6AVI4DU4ByZot6R3IGMj+5bGV82ASIB5A7gUTwwUgBgfPEEiClqqIfOkXs4BzPAEd93dQgQBqRgejB/YENZ7QPj92MCqBQBMheBcnsgWwSxAwZHf8/VImCQE6wa8iFsEQmAjKOFQFUlgIvWyBYpamlrmLY3/xXkf41FrQMsW4RStF45DgE/Ez5XsP9dgCq82yoSQHpwiR3Cq1IcAnTNz3oOqvFmK0nAjw8bynPRDKBMws/FqjLvtKoEsCIgrwwwBIEUnOW7hnH4NYDTJIDzZDxTQV/pivHLjuNs/nHU/PfkCCBrvfoKQ+go+y5mIulP0XD+Ybyp2FusOAEvPDWM/hLJsLj0ifgxgS4wagIFxh+GspxON05+CvhbNuhbNx6Bfxg1gUKBEXi39GYxwRDmAHHvo42HG+77jpt8naN53zZ1/7D59qDdWJ8RgUbbJ0DkuPFAIBTyr7fdLvofj9s/blWlo8rLsOij49sjrYSduhUCyA/QJbrEDT5R2w7w12p0AptubYWKKoG2oUn0mdNY/1/DOL/EY72Yf3W57hjgjgUAeeKagFgCOLZZR6/pBADcOc+C6CemA7c1gcIEqCKlxDbIbXc3m2dUYJvaDwgnQLUqt1OGDaoJ7EVA4yOAdYA2/bFSPJve1gQOoAM0AiQrQ0HqrzWBQ1ghGoENSeOgcvxlyRMl0LnjJnBO/MBm54q1XRZdEyhOQMtDIHAZ8RpGTeBABDyjnyzk1QT2sUK0JItGYGHcMmuoNYHinngbrjfvBpXAK+ZyTk1AAIHoUGkElJpATaAmwCLQrwnUBGoCNYGjEmjUBIrmA0II2F1ggJrAkQmsawJHJGDWOiCcAOWCkprAIQnQDqfPIFBbIbEElJrAaenA89oKideBVU4CtQ6IJnCZh0D1WiW+NCt0W7mU+EvzxDWBYxN4VRM4LoEKLtCc0Ep9TaAmUBOoCRyXgF0TqCSBfk2gJvBFEFgZHf6V95pACQMJlX/lvSZwQAL2llJtTidQV+bEEqCtuLAJ2NuGUZ/scUwCZk2gJvBFEJjXBCpLoPYDx9cBUBOoCZwmgbkgAr2aQGECvwqJhWoCe1ghyN0HujI6kN0yZ9QECgx8rTr9GPBbSgMWe7uHfWt8VRMoRqAvswjMKV/NarQ2X9UEWONFivjnoHOJCJg1AfFTe4XHDfPf1+vV2jMyfXmZgwDLCplKTSAkp8HL0VBHYzi6uHgxaET/EYC5L1rQaCgq69jp3ATOawL+uLKsiT8sS78eDfBZ60j0YDVf+xwaqqrK8ham9UJf1jpQaPyg7wBgBAjCxU1IBxqKoqhd2LuLXB/DtR+gJsA1XmIVsLwxcf/8W6PRwUO5fb4lF6Bk30PzKlc0Wluh3RjoWO6u8C3XHlmWpKFxh22Od4x39lBBLgIdY1UTcMdF2AZNPAQSPlc31wVMUM1nhf6zJuAL6ZpOQBtP810wkJNArQOBEYoAcAlY1hCf152LAKwJFPfDVpLArGwCsCbgjRvdsig6oEs1gYP5YQqByUSXpnkJKLmi0ZqAP0bepI8RsDCBTS4CHUoPXE2AJx9287GYFbKwFZrmIUBd960J8JSEKDqAPjn7eTod57pkkk4AbHOozBdIAIwmUTfgYxjqZ4hADkcA39EIrA3QtU/llLmjEBgMJxMqATcYymGGGOd0nBtsArUOeOkYjQDWgvF0PDazanL+P/ZU+jEdbAKN2g9gIxSPRUMEcDzKbYag3KBfcl4TSBsr42Y4YQ5ihnjj0W2DcVJNTSBXTSiqB0NtOn7GnY0xLrpNI1D7gXhhOjZmZxpnPAoVwIprmATkmgApTKcAsGY/df74tgt7PACYDYhsAqAmEF8gTjjjK/w1fVV+3r2DBQEwCdjPwaVREzjXWeInifFg9QIv5QK8Vq/KPciIgvppLbhsApU7ZO4YBC4si6kAk8nwB9w+5xt40Oh0lC7EzSqhhWPYSwfAzIlttYKt04cn8JJFgCQEF77swXq1CjCo8nbrtq1AeK8qDWCkTWZ2XUitrRBZIWYS0F9exVrn5vOFb5M6yu3t7a8KEX/6TAZzVl1INWoCKBtgE3hNF+giFr8sFmkAwPocWSGzJsAaV0wAk+vvmVLFY4HHfL5KE/8C4CQNvIM1gRQ3MMlPgHMQ3wDeMdt8awKEADsdu96voxCnyI0+u80ar+vXBAxjlEJgj6oZIN/bl+XUdlOlzgcMI6UmoRcksAZzPLVR0AohTC1lVHGRskIErOtGUeODPnbULeTorJh/8QQGOpvAy4LWB9cvnrvyt2sCHOmAOAIAz3/QSPG9lb+M7BgEJqyyECMhS3e+QFEhp/wrWhY6NIFzZkJsWYM84l9cEvPTJeLnY4CC0ZqA8YJZGbWGPxg/8sqfFIuU7jbXXgPYryKAahAgm8lGfOIBrvXpKNvdXieuPU/VzMeqRIDLDbiZF7E+tplvLJUq+uEjEGCWprPdwJzM/kYHhZ55xV/VZfoq+YFrvsxLUbdmoYE3exg1AWY+YFkX6asurvFRu5A7+OTY81fnxOGi0H+lfdsCOeAOzrxs7tgzfrpWRW1QRepCOBJKDz7BO3lZcPJX9sDpIxEYMYxQuh9uyPuIv8JOoDo68L8AM/wcfN9R7sy9AYCagDsuqHs3WF4AXI3062tJwxrgFJZ/pQEcYaWe1it3Rf3am6trstlDl7R9NOC+0gAOTuCHYbw4arEi0Svd22xj6dKyuAXq9SsN4Chdi/5pNpa3qfUi8UU/IgUIvpAgyK8FuFgE4b0CjEoDODyBF75cAwCjG0pR9GoUXkkgCHI5AtuE256sYvmvKg3g8ARursMegGGCwJVlhZrrLIKAWCKHhwPcbmWl0yANjufVlv8x9tBcWeGS6JDmhBs/ucdvWeHa6fDMRZAZ+ciy4m/xu1xVXf7HIHAz2gn2+oJ22ij4yT15Lla+znAGEMJt91XHm/pY+Ccg/qMQQAh0Yn700X/ccJbvLB8BKya6Q3aHGH0yzgE4CeEfi4ABBlcXF1cDMkVpC5OM3lJdTzBA8Q6a+t1XSseT+fl8Pj8h6R+JQOZq8MuU5Xzp52XI7Nx1n7sbOsiYn5boj6gD2QSYG50m1szLzpbLLRK+Z3UWAICTFH9FCaTsOEbOYIZioiVE0SYIxG+c8jg5AkN9qHmWB8eal2vjxEcVCQzStxzr35KvWgHjsxhVJIC33adtuBwY55+L+CtKwHjNbu9FTnp4Y3xOo5IEBmmOgLGYUBMQaoZG7PZSC6nAqiZQfjSU4gdG/13rwAGioTRH8FNN4ADREGOnB7kxQh/UBEofV2kHcU1GoCZQ9ljpE3ZO4J0DVRModYwmaVqgr2oCB0gJrEnkcOpop3VN4AC+mE1gkm/bX01gn5SAtevpGtQESh43eqoOfD7OuLr3E/+WogOT9A0HNQGBeTGzQKTzbz+uCezhCSymFZq8/netAwcISFMIfC5mqMr31I+slLaVyWhQEyhfCdIIfC4rNVUmYIystDOqL2oCx1MC8vnPpEJaaQLgtcW4OAt/8jNZsa80gcQVohECn8lCTbUJMA5Jdglc/++awAHs0PVu21mcgFXrwGFqE1aySFoTOLAdYhCo/cBhxj9HlIWCmsDhxo/J24x9AnU0epixMty9xVbUDNUZ2QGVAPxE21s5seqqxOFC0kSRlBCoa6OHREDZXzyq99Ac0BXcDMMnHLgbvD+XfpXT0IHIUQhuZPTZtKtIJ/I6G6PdsUSfV8vWqRDYRURuZHpl1AQO7QvAlb/JFe+jadQEjjBuftMt73zYfxo1gaOMwQiXKPTPqHP61AggazR4Mfi89hP/fwT1Dall0EGGAAAAAElFTkSuQmCC",TD="data:image/png;base64,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";
+const stops=[
+ {id:'inicio',img:TF,t:'¡Hola! Soy Tito y hoy te presento cómo va a comunicar Ridery. Toca «Siguiente» para empezar el recorrido.'},
+ {id:'interna',img:TF,t:'Empecemos por casa: que el equipo se entere primero, y por nosotros. Toca «Lo que propongo» para ver La Cápsula.'},
+ {id:'externa',img:TD,t:'Esta parte es seria, así que aquí no hablo yo: de la reputación se encargan nuestros líderes. Yo solo te muestro el camino.'},
+ {id:'gobernanza',img:TF,t:'Una regla simple: cada área define el qué y Corporate Communications define el cómo. Elige una situación y lo verás.'},
+ {id:'crisis',img:TD,t:'En una crisis yo me hago a un lado. Toca cada círculo para conocer al comité y a las mesas.'},
+ {id:'riesgos',img:TD,t:'Mejor prevenir que lamentar. Toca un riesgo para ver su señal temprana y quién lo gestiona.'},
+ {id:'protocolo',img:TF,t:'Seis pasos y tres niveles. Cambia el nivel y mira cómo se ajustan los tiempos. '},
+ {id:'equipo',img:TF,t:'Para hacer todo esto, Beatriz necesita equipo y herramientas. Cambia entre «Cómo estamos hoy» y «Estructura propuesta». ¡Gracias por acompañarme en el recorrido!'}
+];
+const guideEl=$('#guide'),gText=$('#gText'),gImg=$('#gImg');
+let cur=-1;
+function setStop(i){if(i===cur)return;cur=i;const st=stops[i];gText.textContent=st.t;if(gImg.src!==st.img)gImg.src=st.img;gImg.classList.remove('wiggle');void gImg.offsetWidth;gImg.classList.add('wiggle');$('#gPrev').disabled=i===0;$('#gPrev').style.opacity=i===0?.4:1;$('#gNext').textContent=i===stops.length-1?'Volver al inicio':'Siguiente'}
+function go(i){const el=document.getElementById(stops[i].id);el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});guideEl.classList.remove('min');setStop(i)}
+$('#gNext').onclick=()=>{if(cur>=stops.length-1){window.scrollTo({top:0,behavior:'smooth'});return}go(Math.max(0,cur+1))};
+$('#gPrev').onclick=()=>{if(cur>0)go(cur-1)};
+$('#gHide').onclick=()=>guideEl.classList.add('min');
+$('#gTito').onclick=()=>{guideEl.classList.toggle('min');gImg.classList.remove('wiggle');void gImg.offsetWidth;gImg.classList.add('wiggle')};
+guideEl.classList.add('on');
+const stopObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=stops.findIndex(x=>x.id===e.target.id);if(i>-1)setStop(i)}}),{rootMargin:'-45% 0px -50% 0px'});
+stops.forEach(x=>stopObs.observe(document.getElementById(x.id)));
+if(matchMedia('(max-width:600px)').matches)guideEl.classList.add('min');
+setStop(0);
+const prog=$('#progress');
+addEventListener('scroll',()=>{const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%'},{passive:true});
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.sec-head,.sub,.panel,.today,.gov-rule,.orbit,.steps').forEach(el=>{el.classList.add('reveal');rv.observe(el)});
+
+/* nav highlight */
+const links=[...document.querySelectorAll('.nav-links a')];
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section.blk[id]').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
